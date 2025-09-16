@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 formularios</title>
+</head>
+<body>
+    <form action="#" method="post" name="formulario1">
+        <!--todos los camposs son obligatorios-->
+        <h1>Formulario de Registro de Usuario</h1>
+        <fieldset>
+            <legend>Informaci&oacute;n Personal</legend>
+            <!--longitud maxima nombre apellido-->
+            <p>
+                <label>Nombre:
+                    <input type="text" name="nombre" maxlength="30" minlength="4" required>
+                </label>
+            </p>
+            <p>
+                <label>Apellido:
+                    <input type="text" name="apellido" maxlength="30" required  minlength="4">
+                </label>
+            </p>
+            <p>
+                <label>Fecha de Nacimiento:
+                    <input type="date" name="fecha-nacimeinto" min="1950-01-01" max="2010-12-31" required>
+                </label>
+            </p>
+            <p>
+                    <label>G&eacute;nero:</label>
+                    <br>
+                    
+                    <label>
+                         <input type="radio" name="genero" value="Masculino"  id="masculino" required>
+                    </label>Masculino
+                    <br>
+                    <label>
+                        <input type="radio" name="genero" value="Femenino">
+                    </label>Femenino
+                    <br>
+                    <label>
+                        <input type="radio" name="genero" value="Otro">
+                    </label>Otro
+                   
+                    
+                    
+            
+            </p>
+            <!--pais de residencia debe estar separados los optgroup continentes-->
+            <p>
+                <label>Pa&iacute; de residencia:
+                    <select name="pais" required>
+                        <!--américa[argentina,méxico,estados unidos] europa[españa,fracia,alemania] asia[japón,china]-->
+                        <option value="" selected>--Seleccione un pa&iacute;s--</option>
+                        <optgroup label="Am&eacute;rica">
+                            <option value="Argentina">Argentina</option>
+                            <option value="M&eacute;xico">M&eacute;xico</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                        </optgroup>
+
+                        <optgroup label="Europa">
+                            <option value="Espa&ntilde;a">Espa&ntilde;a</option>
+                            <option value="Francia">Francia</option>
+                            <option value="Alemania">Alemania</option>
+                        </optgroup>
+
+                        <optgroup label="Asia">
+                            <option value="Jap&oacute;n">Jap&oacute;n</option>
+                            <option value="China">China</option>
+                        </optgroup>
+                    </select>
+                </label>
+            </p>
+            <!--telefono 9 números sin espacios ni prefijos-->
+            <p>
+                <label>Tel&eacute;fono:
+                    <input type="tel" name="telefono" placeholder="Ej: 123456789" pattern="[0-9]{9}" minlength="9">
+                </label>
+            </p>
+     
+        </fieldset>
+               <!--password minimo 8 caraccteres (al menos 1 letra mayuscula 1 minuscula y 8 caracteres)-->
+        <fieldset>
+            <legend>Credenciales de Acceso</legend>
+            <p>
+                <label>Email:
+                    <input type="email" name="email"  placeholder="Ej: micorreo@miemail.com" required >
+                </label>
+            </p>
+            <p>
+                <label>Contrase&ntilde;a:
+                    <!--lookahead positivo evalua si el patron existe sin moerse por la cadena de texto evalua si el patron esta en la
+                    cadena de texto sin importar la posicion el punto final de los grupos define que lo anterior puede ser cualquiere caaccter y longitud 8-->
+                    <input type="password" name="contrasenya" minlength="8" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$">
+                </label>
+            </p>
+            <p>
+                <label>Confirmar contrase&ntilde;a:
+                    <input type="password" name="con-contrasenya" minlength="8" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$">
+                </label>
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferencias y T&eacute;rminos</legend>
+            
+            <p>
+                <label>
+                    Intereses (seleccione al menos uno):
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="intereses[]" value="Tecnolog&iacute;a">
+                    Tecnolog&iacute;a
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="intereses[]" value="Deportes">
+                    Deportes
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="intereses[]" value="Cocina">
+                    Cocina
+                </label>
+
+            </p>
+            <!--notificaciones activas por defecto -->
+            <p>
+                <label>
+                    Recibir Notificaciones por Email:
+                    <br>
+                    <input type="checkbox" name="notificaciones" checked value="aceptaNotificaciones">
+                </label>
+            </p>
+
+            <!--casilla de verificacion debe ser marcada-->
+            <p>
+                <label>
+                    <input type="checkbox" name="teminos" value="aceptaTerminos" required>
+                    Acepto los <a href="#">T&eacute;rminos y Condiciones</a>
+                </label>
+            </p>
+        </fieldset>
+         
+        <input type="submit" value="Registrarse" name="btn-registrar">
+        <input type="reset" value="Limpiar Formulario" name="btn-limpiarForm">
+    </form>
+</body>
+</html>

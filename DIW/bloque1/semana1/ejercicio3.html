@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="AndresGiraldoB">
+    <meta name="description" content="ejericio formularios">
+    <title>Ejercicio de formularios 3</title>
+</head>
+<body>
+    <form action="#" method="post" name="formulario3">
+        <h1>Encuesta de Satisfacci&oacute;n del Cliente</h1>
+        <fieldset>
+            <legend>Tu Experiencia General</legend>
+            <p>
+                <label>¿Qu&eacute; tan satisfecho est&aacute;s con nuestro servicio/producto en general?</label>
+                <br>
+                <label>
+                    <input type="radio" name="satisfaccion" value="Muy Satisfecho" required>
+                    Muy Satisfecho
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="satisfaccion" value="Satisfecho">
+                    Satisfecho
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="satisfaccion" value="Neutral">
+                    Neutral
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="satisfaccion" value="Insatisfecho">
+                    Insatisfecho
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="satisfaccion" value="Muy Insatisfecho">
+                    Muy Insatisfecho
+                </label>
+                
+            </p>
+            <p>
+                <label for="calificacion">Califica nuesrto servicio/producto (1 - 5 donde 5 es excelente)</label>
+                <br>
+                <input type="range" name="calificacion" id="calificacion" min="1" max="5" step="1">
+            </p>
+            <p>
+                <label for="">¿Qu&eacute; aspectos te gustaron m&aacute;s? (seleccione todos los que apliquen)</label>
+                <br>
+                <!-- interfaz de usuario, Rendimiento/velocidad, soporte al cliente, precio, funcionalidades-->
+                <label>
+                    <input type="checkbox" name="aspectos[]" value="Interfaz de usuario">
+                    Interfaz de usuario
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="aspectos[]" value="Rendimeinto/Velocidad">
+                    Rendimeinto/Velocidad
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="aspectos[]" value="Soporte al cliente">
+                    Soporte al cliente
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="aspectos[]" value="Precio">
+                    Precio
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="aspectos[]" value="Funcionalidades">
+                    Funcionalidades
+                </label>
+            </p>
+            <!-- sugerencias para mejorar textarea 'Nos encantaria escuchar tus ideas nuestro \n servicio/producto aún mejor.'-->
+             <p>
+                <label for="sugerencias">Sugerencias para mejorar:</label>
+                <br>
+                <textarea name="sugerencias" id="sugerencias"  spellcheck="true" cols="70" rows="7">
+                    Nos encantar&iacute;a escuchar tus ideas para hacer nuestro
+                    servicio/producto a&uacute;n mejor.
+                </textarea>
+             </p>
+        </fieldset>
+        <fieldset>
+            <legend>Informaci&oacute;n Adicional (opcional)</legend>
+            <p>
+                <label for="">Tu Profesi&oacute;n:</label>
+                <br>
+                <input list="profesiones" name="profesiones">
+                <datalist id="profesiones" autocomplete="on">
+                    <option value="Estudiante"></option>
+                    <option value="Ingeniero"></option>
+                    <option value="Diseñador"></option>
+                    <option value="Docente"></option>
+                    <option value="Empresario"></option>
+                </datalist>
+            </p>
+            <p>
+                <label for="edad">Tu Edad:</label>
+                <br>
+                <input type="number" name="edad" id="edad" min="18" max="99">
+            </p>
+            <p>
+                <label for="email">Tu Email:</label>
+                <br>
+                <input type="email" name="email" id="email">
+            </p>
+        </fieldset>
+        <input type="submit" value="Enviar Encuesta">
+        <input type="reset" value="Reiniciar">
+    </form>
+    
+</body>
+</html>

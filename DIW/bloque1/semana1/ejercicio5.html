@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="AndresGiraldoB">
+    <meta name="description" content="ejericio formularios">
+    <title>Ejercicio de formularios 5</title>
+</head>
+<body>
+    <form action="#" method="post" name="formulario5">
+
+        <h1>Registro para el Evento Anual Corporativo</h1>
+        <fieldset>
+            <legend>Informaci&oacute;n del empleado</legend>
+            <p>
+                <label for="ID-EMPLOYED">ID de Empleado (formato EMP-1234):</label>
+                <br>
+                <input type="text" name="ID-EMPLOYED" id="ID-EMPLOYED" maxlength="8" minlength="8" pattern="^[A-Z]{3,}-[0-9]{4}$" required>
+            </p>
+            <p>
+                <label for="user-name">Nombre de Usuario (5-15 caracteres, solo min&uacute;sculas y n&uacute;meros):</label>
+                <br>
+                <input type="text" name="user-name" id="user-name" pattern="^(?=.*[a-z])(?=.*[0-9]).{5,15}$" required>
+            </p>
+            <p>
+                <label for="codigo-pos">C&oacute;digo Postal de la Oficina (5 digitos):</label>
+                <br>
+                <input type="text" name="codigo-pos" id="codigo-pos" pattern="^[0-9]{5}$" required>
+            </p>
+        </fieldset>
+        <input type="submit" value="Registrase al Evento" name="envio">
+    </form>
+    
+</body>
+</html>

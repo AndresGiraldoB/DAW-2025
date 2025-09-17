@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="AndresGiraldoB">
+    <meta name="description" content="ejericio formularios">
+    <title>Ejercicio de formularios 4</title>
+</head>
+<body>
+    <form action="#" name="formulario4" method="post">
+        <h1>Formulario de Env&iacute;o de NUevo Video</h1>
+        <fieldset>
+            
+            <legend>Detalles del Contenido y Cuenta</legend>
+            <p>
+                <label for="sku-proyect">SKU del Proyecto (Ej: AB-12345)</label>
+                <br>
+                <input type="text" name="sku-proyect" id="sku-proyect" pattern="^[A-Z]{2,}-[0-9]{5,}$" minlength="8" required>
+                
+            </p>
+            <p>
+                <label for="n-password">Nueva Contrase&ntilde;a (min 8 caracteres, con mayuscula, minuscula y n&uacute;mero):</label>
+                <br>
+                <input type="password" name="n-password" id="n-password" minlength="8" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$" required>
+            </p>
+            <p>
+                <label for="brand-color">Color Principal de  Branding (Hexadecimal, ej: #FF5733)</label>
+                <br>
+                <input type="color" name="brand-color" id="brand-color" minlength="7" maxlength="7" pattern="^#([A-Fa-f0-9]{6,})$" required value="#FF5733">
+            </p>
+            <p>
+                <label for="id-video">ID de Video Relacionado (11 caracteres):</label>
+                <br>
+                <input type="text" name="id-video" id="id-video" maxlength="11" minlength="11" pattern="^[a-zA-Z0-9]{11,}$" required>
+            </p>
+            <p>
+                <label for="matricula-ve">Matr&iacute;cula del Veh&iacute;culo de Producci&oacute;n (Ej: 1234 BCD):</label>
+                <br>
+                <input type="text" name="matricula-ve" id="matricula-ve" pattern="^[0-9]{4,} [A-Z]{3,}$" minlength="8" maxlength="8" required>
+            </p>
+
+        </fieldset>
+        <input type="submit" value="Enviar Informaci&oacute;n">
+    </form>
+</body>
+</html>

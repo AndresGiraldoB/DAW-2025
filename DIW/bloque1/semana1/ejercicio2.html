@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="AndresGiraldoB">
+    <meta name="description" content="ejericio formularios">
+    <title>Ejercicio formularios 2</title>
+    
+</head>
+<body>
+
+    <!-- enctype="multipart/form-data" para subir docuemntos -->
+    <form action="#" method="post" name="formulario2" enctype="multipart/form-data">
+        <h1>Formulario de Solicitud de Producto/servicio</h1>
+        <fieldset>
+            <legend>Tipo de Solicitud</legend>
+            <p>
+                <label for="t-solicitud">Selecciones el tipo de solicitud:</label>
+                <select name="tipo-solicitud" id="t-solicitud" required>
+
+                    <option label="--Por favor, elige--" value=""></option>
+
+                    <optgroup label="Productos">
+                        <option value="Producto A" label="Producto A"></option>
+                        <option value="Producto B" label="Producto B"></option>
+                        <option value="Producto C" label="Producto C"></option>
+                    </optgroup>
+
+                    <optgroup label="Servicios">
+                        <option value="consultoria" label="Servicio de Consultor&iacute;a"></option>
+                        <option value="mantenimiento" label="Servicio de Mantenimiento"></option>
+                        <option value="instalacion" label="Servicio de instalaci&oacute;n"></option>
+                    </optgroup>
+                </select>
+                    
+                    
+            
+            </p>
+
+            <p>
+                <label for="cantidades">Cantidad (para productos):</label>
+                <br>
+                <input type="number" id="cantidades" min="1" max="100" value="1" required>
+                
+            </p>
+
+            <p>
+                <label>Prioridad de la Solicitud:</label>
+                <br>
+                <label>
+                    <input type="radio" name="prioridad" value="baja" checked required>
+                    Baja
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="prioridad" value="media">
+                    Media
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="prioridad" value="alta">
+                    Alta
+                </label>
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Detalles Adicionales</legend>
+            <div>
+                <label for="comentarios">Comentarios o Especificaciones:</label>
+                <br>
+                <textarea name="comentarios" id="comentarios" cols="60" rows="6" spellcheck="true">
+                Escribe aqu&iacute; culaquier detalle adicional sobre tu
+                solicitud (m&aacute;ximo 500 caracteres)
+                </textarea>
+                <br>
+                <small>M&aacute;ximo 500 caracteres</small>
+            </div>
+
+            <p>
+                <label for="fecha-entrega">Fecha Deseada de Entrega/Inicio:</label>
+                <br>    
+                <input type="date" name="fecha-entrega" id="fecha-entrega" required >
+                
+            </p>
+           
+            <p>
+                <label for="hora-entrega">Rango Horario Preferido</label>
+                <br>
+                <input type="time" name="hora-entrega" id="hora-entrega"> 
+                - 
+                <input type="time" name="hora-entrega" id="hora-entrega">
+            </p>
+
+            <p>
+                <label for="adjunto">Adjuntar documento (opcional):</label>
+                <br>
+                <input type="file" name="adju-doc" accept=".pdf, .doc, .docx" id="adjunto">
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Informaci&oacute;n de Contacto</legend>
+            <p>
+                <label>Tu Nombre:</label>
+                <input type="text" min="4" maxlength="30" name="nombre" required >
+            </p>
+            <p>
+                <label>Tu Email:</label>
+                <input type="email" name="email" id="email" required>
+            </p>
+            <p>
+                <label>Tu Tel&eacute;fono (opcional):</label>
+                <input type="tel" name="telefono" minlength="9" pattern="[0-9]{9,}">
+            </p>
+        </fieldset>
+        <input type="submit" value="Enviar Solicitud">
+        <input type="reset" value="Borrar Formulario">
+    </form>
+    
+    <!--script para que la fecha de entrega sea igual o  mayor a la actual-->
+    <script>
+        // convertimos hora actual a tolocaleDateString YYYY/M/DD
+        let fechaActual = new Date();
+        let fechaFormat= Intl.DateTimeFormat('EU',{year:"numeric", month:"2-digit", day:"2-digit"}).format(fechaActual);
+        //console.log(fechaFormat);
+        //tomamos el input del date y ponemos el atributo min para que la fecha no pueda ser anterior a la fecha actual
+        let inputEntrega= document.getElementById('fecha-entrega');
+        inputEntrega.min=fechaFormat.toString();
+        //console.log(inputEntrega);
+        
+        
+    </script>
+</body>
+
+</html>

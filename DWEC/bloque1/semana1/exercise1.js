@@ -46,6 +46,8 @@ let timesChar = (word, char)=>{
     }else{
         return contador;
     }
+    //operador ternario 
+    return contador < 1 ? -1 : contador;
 
 };
 

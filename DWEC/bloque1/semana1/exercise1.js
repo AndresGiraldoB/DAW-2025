@@ -6,7 +6,9 @@
  * Check that both parameters are strings and the second string is only 1 character. If there's an error, print a message and return -1
  * Example: timesChar("Characteristic", "c") -> 3
  */
+
 'use strict';
+
 console.log("EXERCISE 1 - PART 1");
 
 //funcion lambda que recibe un strin con una oalabra y segundo parametro una letra, si no ecuentra ninguna -1 si la encuentra las cuenta
@@ -40,17 +42,19 @@ let timesChar = (word, char)=>{
         
         return contador;
     });
-    
+    /*
     if(contador < 1){
         return -1;
     }else{
         return contador;
-    }
+    }*/
+   //cambio por operador ternario
+   return contador < 1 ? -1 : contador;
 
 };
 
 console.log(timesChar("Characteristic", "c"));
-/*
+
 console.log("===================================");
 let timesChar2=(cadena,letra)=>{
      //check thar both are strings and length the first > 1 and second = 1
@@ -81,16 +85,18 @@ let timesChar2=(cadena,letra)=>{
         return acumulador;
     },0);
     //si el resultado es menor a 1 regresamo -1 
-    if(resultado < 1){
+    /*if(resultado < 1){
         return -1;
     }else{ // de lo contrario regresaos el resultado
         return resultado;
-    }
+    }*/
+   //operador ternario
+   return resultado < 1 ? -1 : resultado;
 
 
 };
 console.log(timesChar2("Characteristic", "c"));
-console.log(timesChar2("CddDfDDddGGhhHHggHhhhh", "d"));*/
+console.log(timesChar2("CddDfDDddGGhhHHggHhhhh", "d"));
 /**
  * Part 2
  * Create a function that takes a string as input and checks if it's a palindrome (if it's the same when reversed).
@@ -115,11 +121,13 @@ let isPalindrome=(stringInput)=>{
     let stringReverse=Array.from(stringInput).reverse().join('');
    
    //comparamos las cadenas con localeCompare
-   if(stringInput.localeCompare(stringReverse) !== 0){
+   /*if(stringInput.localeCompare(stringReverse) !== 0){
     //sie es diferente a 0, 0 es iguales , diferentes -1
     return false;
    }
-   return true;
+   return true;*/
+   return stringInput.localeCompare(stringReverse) !== 0 ? false : true;
+   
 
 };
 console.log(isPalindrome("abeceba"));
@@ -134,6 +142,16 @@ console.log(isPalindrome("anais"));
  */
 console.log("\nEXERCISE 1 - PART 3");
 
+//create array of strings
+let myStrings=['exam','learning','life','move','review','use','policies','manage'];
+//filter array only the strings wich their lenght is least 5
+let myFilteredStrings=myStrings.filter((string)=> string.length >= 5);
+// trasform to uppercase
+myFilteredStrings= myFilteredStrings.map((stringMinus)=> stringMinus.toLocaleUpperCase());
+//print the array using ';' as separator
+console.log(myFilteredStrings.join(';'));
+
+
 /**
  * Part 4
  * Develop a function that compresses a string by replacing consecutive repeating characters with
@@ -143,6 +161,37 @@ console.log("\nEXERCISE 1 - PART 3");
 
 console.log("\nEXERCISE 1 - PART 4");
 
+let stringCompression=(myString)=>{
+    //validate type string
+    if(typeof myString !== 'string'){
+        return `The value passed to function is not type string, the current value is type: ${typeof myString}`;
+    }
+    //validate length more greater than 1
+    if( myString.length <= 1){
+       return `The string passed to the function must have more than 1 letter, the current string has: ${myString.length}`;
+    }
+    //transform the string to array
+    let arrayMyString = Array.from(myString);
+    let count=1;// cada letra esta almenos 1 vez
+    //use the reduce() method
+    let stringCompressed= arrayMyString.reduce((acumulador,valorActual,indiceActual)=>{
+        //validate if the current value is the same of array[currentIndex + 1] next position
+        // If the value matches, we add one to the counter, otherwise we concatenate the letter to the current counter and 
+        // the counter returns to 1 to count the next one.
+        if(valorActual === arrayMyString[indiceActual + 1]){
+            count++;
+        }else{
+            acumulador += `${valorActual}${count}`;
+            count=1;
+        }
+        return acumulador;
+    },'');
+  
+    //console.log(stringCompressed);
+    return stringCompressed;
+};
+console.log(stringCompression("GGGHHRRRRRRRUIIIOOOO")); 
+console.log(stringCompression('ddDDDFFFfffzzZ')); 
 /**
  * Part 5
  * Create an array with 4 values and do the following (use the correct array methods).
@@ -154,6 +203,23 @@ console.log("\nEXERCISE 1 - PART 4");
  */
 console.log("EXERCISE 1 - PART 5");
 
+//create a array with 4 elements
+let myArrayFruits=['Strawberry','Pineapple', 'Raspberry','Peach'];
+console.log(myArrayFruits.join('=>'));//Strawberry=>Pineapple=>Raspberry=>Peach
+//add 2 elements at the beginning
+myArrayFruits.unshift('Lime','Watermelon');
+console.log(myArrayFruits.join('=>'));//Lime=>Watermelon=>Strawberry=>Pineapple=>Raspberry=>Peach
+//add 2 elements at the end
+myArrayFruits.push('Kiwi','Coconut');
+console.log(myArrayFruits.join('=>'));//Lime=>Watermelon=>Strawberry=>Pineapple=>Raspberry=>Peach=>Kiwi=>Coconut
+//delete position 3,4,5
+myArrayFruits.splice(3,3);
+console.log(myArrayFruits.join('=>'));//Lime=>Watermelon=>Strawberry=>Kiwi=>Coconut
+//insert 2 elements before the last element
+myArrayFruits.push('Blueberry','Pomegranate');
+console.log(myArrayFruits.join('=>'));//Lime=>Watermelon=>Strawberry=>Kiwi=>Coconut=>Blueberry=>Pomegranate
+
+   
 
 /**
  * Part 6
@@ -173,6 +239,16 @@ console.log("EXERCISE 1 - PART 6");
  */
 
 console.log("EXERCISE 1 - PART 7");
+//create a array of strings
+let myArrayAnimals=['horse','cat', 'dog', 'goat','raccoon','seal','bear','sheep'];
+//use reducce method 
+let concatFirstLetter=myArrayAnimals.reduce((acumulador,valorActual)=>{
+    //return acumulador += valorActual[0];
+    //return acumulador += valorActual.charAt(0).toLocaleUpperCase();
+    return acumulador += valorActual.slice(0,1).toLocaleUpperCase();
+},'');//string vacio
+
+console.log(concatFirstLetter); //HCDGRSBS
 
 /**
  * Part 8
@@ -201,6 +277,24 @@ console.log("EXERCISE 1 - PART 9");
  * Example: Peter (7.60 - 2.50 - 6.25 - 9.00). Average: 6.34
  */
 console.log("EXERCISE 1 - PART 10");
+
+//create a map objects
+let studentsMap= new Map();
+
+studentsMap.set("Anais" ,[2.5,6.5,7,8.5]);
+studentsMap.set("Andres",[7,2,4.5,5]);
+studentsMap.set("Fernando",[2.5,6.5,7,8.5]);
+
+let average=0;
+//iterar por el mapa enseñando nombre notas y media
+// al recoorer un mapa con foreach se tenemos acceso a su valor, clave en este orden
+studentsMap.forEach((marks,student)=>{
+    //para calcular media usaamos reduce para sumar cada nota dentro del array de notas de cada estudiante
+    average=marks.reduce((total,valorActual)=> total += valorActual) / marks.length;
+    //mostramos el estudiante sus notas y la media
+    console.log(`${student} (${marks.join(' - ')}) Average: ${average.toFixed(2)}`);
+});
+
 
 /**
  * Part 11

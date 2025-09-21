@@ -260,6 +260,7 @@ console.log(concatFirstLetter); //HCDGRSBS
 
 console.log("EXERCISE 1 - PART 8");
 
+
 /**
  * Part 9
  * Create a function that takes an array of lights represented by the characters '🔴' and '🟢'.
@@ -304,6 +305,46 @@ studentsMap.forEach((marks,student)=>{
  */
 console.log("EXERCISE 1 - PART 11");
 
+
+//map dishes
+let dishes = new Map();
+//set dishes
+dishes.set( 'paella valenciana',['tomatoes','rice','olive oil','saffron','salt']);
+dishes.set( 'patatas bravas', ['tomatoes','saffron','paprika','olive oil','potatoes','salt']);
+dishes.set( 'tortilla de patata',['potatoes','eggs','olive oil', 'salt']);
+
+//from this map generate another map where key is ingreddients an value array of dishes
+let ingredientsM=new Map();
+//set ingreddients and array of dishes
+dishes.forEach((lIngredients, dish)=>{
+    //recorremos cada ingrediente del array si este no esta en el mapa de ingredientes
+    //lo añadimos al map como clave y el valor array en blanco
+    lIngredients.forEach((ingredient)=> {
+        if(!ingredientsM.has(ingredient)){
+            //si el ingrdiente no esta en el mapa lo añadimos y su valor array vacio
+            ingredientsM.set(ingredient,[]);
+        }
+
+        //buscamos el ingrdiente y añadimos plato
+        ingredientsM.get(ingredient).push(dish);
+    } );
+    
+});
+
+//ingredientsM.forEach((dis,ingredient)=> console.log(`${ingredient} - ${dis}`));
+//por ultimo añadir el nuevo mapa al mapa de dishes
+
+dishes.set('Ingredients and Dishes', ingredientsM);
+
+dishes.forEach((ingredients, dish)=> {
+    //operador ternario donde si el plato es diferente a 'Ingredients and Dishes' se muestra el plato y los ingredientes
+    dish != 'Ingredients and Dishes' ? console.log(`${dish} - ${ingredients}`) : 
+        ingredientsM.forEach((ds,ing)=> console.log(`${ing} - ${ds}`) );// de lo contrario se recorre el mapa de ingredientes y plaatos
+    
+});
+
+
+
 /**
  * Part 12
  * Create a funcion that can receive as many numbers as you want by parameter. Use rest to group them in
@@ -311,6 +352,28 @@ console.log("EXERCISE 1 - PART 11");
  * DON'T use loops (for, while, etc.)
  */
 console.log("EXERCISE 1 - PART 12");
+
+let myFuncNumbers = (...numbers)=>{
+    //...numbers recibe (1,2,3,4,5) and -> [1,2,3,4,5]
+    //extract odd and even 
+    //filtramos odd and even en dos arrays
+    let msgErr='without numbers to display';
+     // uso de operador coalecencia nula ?? si es null o undefined regresa el valor de la derecha de lo contrario regrea el valor
+    let oddNumbers= numbers.filter((number)=>  number % 2 == 0) || msgErr;//pares
+    console.log(`Even Numbers:`);
+    //operador ternario para mostrar una cosa u otra
+    oddNumbers !== msgErr ? console.log(oddNumbers.toString()): console.log(`${msgErr}`) ;
+    // si regresa null o undefined  msg error
+    let evenNumvers = numbers.filter((number)=> number % 2 != 0) || msgErr;//impares
+    console.log(`Odd Numbers:`);
+    evenNumvers != msgErr ? console.log(evenNumvers.toString()): console.log(msgErr); 
+
+
+};
+
+myFuncNumbers(1,2,4,6,8,10,20,33,22,36,15,17);// even : [2,4,6,8,10,20,22,36] odd: [1,33,15,17]
+myFuncNumbers(24,44,88,66);
+myFuncNumbers(99,101,19,25);
 
 
 /**
@@ -322,7 +385,16 @@ console.log("EXERCISE 1 - PART 12");
  */
 
 console.log("EXERCISE 1 - PART 13");
+//recibes array and destructuring in 3 numbers if any numbers is not present a default value is 0
+let  addFirtsThree = ([num1=0,num2=0,num3=0])=>{
+    //use destructuring in 3 parameters 
+    //if any of those numbers is not present in the array, a default value is 0
+    return num1 + num2 + num3;
+};
 
+console.log(addFirtsThree([2,3]));//5
+console.log(addFirtsThree([2,2,2]));//6
+console.log(addFirtsThree([2]));//2
 
 /**
  * Part 14
@@ -334,6 +406,23 @@ console.log("EXERCISE 1 - PART 13");
 
 console.log("EXERCISE 1 - PART 14");
 
+let getStringLengths=(...strings)=>{
+    //usamos reduce para recorrer cada palabra del array
+    let lengthStrings=strings.reduce((acum,string,index)=>{
+        //usamos el acumulador para acumular la longitud de cada palabra
+        //acum[index]=string.length; 
+        console.log(string + " - " + string.length);
+        acum.push(string.length);
+        return acum;
+    },[]);
+    //operador ternaria donde regresamos sin argumentos mensaje si el array esta vacio, de lo contrario el array nuevo
+    return lengthStrings.length != 0 ? lengthStrings : 'without arguments';
+    
+};
+
+console.log(getStringLengths("potato", "milk", "car", "table"));
+console.log(getStringLengths());
+
 /**
  * Part 15
  * Create an array, and without modifying it, generate the following derived arrays (each new array derives from the previous one):
@@ -343,8 +432,20 @@ console.log("EXERCISE 1 - PART 14");
  *
  * No operation performed should modify the array on which it operates. Show the original array at the end.
  */
-
 console.log("EXERCISE 1 - PART 15");
+//create a new array
+let array1=[2,3,4,5,6];
+console.log(array1);
+//generate the following derived arrays
+let derivedArray= array1.toSpliced(0,0,'A','B');
+console.log(derivedArray);
+//derived other array delete 4 and 5 position
+let otherDerived=derivedArray.toSpliced(4,2);
+console.log(otherDerived);
 
-
+// concatenation arrays
+let concatArray = [...array1,...otherDerived];
+//concatArray.concat(array1,otherDerived);
+//show new array
+console.log(concatArray);
 

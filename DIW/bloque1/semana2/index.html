@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="name" content="AndresGiraldoB">
+    <meta name="description" content="Blog de práctica de Css y selectores Avanzaados 2DAW Semipresencial">
+    <link rel="stylesheet" href="./layout.css">
+    <title>Mi Blog de Pr&aacute;ctica</title>
+</head>
+<body>
+    <!--Header debe contener h1 con título y menú nav-->
+    <header>
+        <h1>Mi Blog de Pr&aacute;ctica</h1><!--titulo principal h1-->
+        <!--menú nav-->
+        <nav>
+            <!--lista de enlaces-->
+            <ul>
+                <li><a href="#">inicio</a></li>
+                <li><a href="#">sobre m&iacute;</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--div contenedor para main y aside -->
+    <div class="contenedor">
+        <main>
+            <!--debe contener dos article-->
+            <article>
+                <!--debe contener un título un párrafo y un section con un formulario-->
+                <h1>Un Art&iacute;culo Interesante</h1>
+                <p>
+                    Este es el primer p&aacute;rrafo del &aacute;rticulo. 
+                    Hablamos sobre la importancia de la web sem&aacute;ntica.
+                </p>
+                <section>
+                    <!--El formulario debe tener campos para nombre, email, un área de
+                        texto para el mensaje (textarea) y un botón de envío.-->
+                    <form action="#" name="formu_contacto">
+                        <h1>Contacta con nosotros</h1>
+                        <p>
+                            Env&iacute;anos tus dudas a trav&eacute;s de este formulario.
+                        </p>
+                        <!--no se pueden realcionar con id for por restriccion no usar id-->
+                        <div>
+                            <label>Nombre:
+                                <input type="text" name="f_nombre">
+                            </label>
+                            
+                        </div>
+                        <div>
+                            <label>Email:
+                                <input type="email" name="f_email">
+                            </label>
+                            
+                        </div>
+                        <div>
+                            <label>
+                                Mensaje:
+                                <textarea name="mensaje" cols="" rows="">
+
+                                </textarea>
+                            </label>
+                        </div>
+                        <input type="submit" value="Enviar">
+                    </form>
+
+                </section>
+
+            </article>
+            <!--El segundo artículo contendrá un título, párrafos, una lista desordenada (ul) con
+                cuatro elementos y un enlace final.-->
+            <article class="art_seg">
+                <!---->
+                <h1>Novedades y m&aacute;s Contenido</h1>
+                <p>
+                    Aqu&iacute; exploramos algunas t&eacute;cnicas avanzadas de CSS.
+                </p>
+                <!--lista 4 elementos ultimo es un enlace-->
+                <ul>
+                    <li>Primer elemento de la lista</li>
+                    <li>Segundo elemento de la lista</li>
+                    <li>Tercer elemento de la lista</li>
+                    <li>Cuarto elemento de la lista</li>
+                </ul>
+                <!--parrafo ultimo denrto del segundo article-->
+                <p>
+                    Este p&aacute;rrafo es el &uacute;ltimo dentro del segundo art&iacute;culo.
+                </p>
+                <!--enalce al final-->
+                <div>
+                    <a href="#">M&aacute;s informaci&oacute;n aqu&iacute; </a>
+                </div>
+            </article>
+        </main>
+        <!--fuera de main pero en contenedor principal-->
+        <aside>
+            <!--incluirá un título, un párrafo y una lista de enlaces a contenido relacionado-->
+            <h1>Contenido Relacionado</h1>
+            <p>
+                Aqu&iacute; puedes encontrar enlaces a otros recursos de inter&eacute;s.
+            </p>
+            <ul>
+                <li><a href="#">Gu&iacute;a de HTML Sem&aacute;ntico</a></li>
+                <li><a href="#">Tutorial de Float en CSS</a></li>
+                <li><a href="#">Selectores CSS Avanzados</a></li>
+            </ul>
+        </aside>
+    </div>
+    <footer>
+        <p>
+            Copyright &copy; 2025 - IES San Vicente
+        </p>
+    </footer>
+</body>
+</html>

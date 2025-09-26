@@ -99,7 +99,50 @@ This is the content of the final array:
 'Liam -> L!am_P@ss_2025',
 'Peter2 -> P3t3r2-S#cur3',
 'Ryan -> Ry@n_Is_Str0ng!'
-]*/
+]
+return-----------compare
+[
+  'Alice -> P@ssw0rd123!',
+  'Diana -> D1ana#Admin_25',
+  'Henry -> H3nry!_Secur3',
+  'Liam -> L!am_P@ss_2025',
+  'Peter2 -> P3t3r2-S#cur3',
+  'Ryan -> Ry@n_Is_Str0ng!'
+]
+
+*/
 console.log("====================");
 console.log("Section 3");
+console.log("---------");
+
+const usersSecPass= usersCopy
+    .filter((user)=> /*user.password.length >= 5 &&*/ user.password
+        .match(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\w).{5}/g))
+        //(?=.*[a-z]) valida que exista al menos 1 Minuscula
+        // (?=.*[A-Z]) valida que exista al menos 1 Mayuscula
+        // (?=.*[0-9]) valida que exista al menos 1 numero
+        // (?=.*\w)valida que ultimo caracter sea un caracter no alfanumerico
+        // .{5} cierra la expresion y pide minimo 5 caracteres de longitud
+        .map((user)=> `${user.name} -> ${user.password}`);// modificamos el array que nos devuelve el filter
+
+//iterar y imprimir elementos
+//usersSecPass.forEach((userPss) => console.log(userPss));
+console.log(usersSecPass);
+
+
+/*Section 4
+Using this function which returns a random integer from zero up to a
+maximum (excluding):
+function getRandomInt(max) {
+return Math. floor (Math. random () * max);
+}
+Get a user from the array at random and generate a new object with the
+same data as the user and an extra field called lastAccess with the date in a
+format like this (09/18/2025, 11:05:20)
+Do not modify the original user! Use the operator spread. Print the user
+with the generated field and then print the original user to verify that it has not
+been modified.*/
+
+console.log("====================");
+console.log("Section 4");
 console.log("---------");

@@ -146,3 +146,23 @@ been modified.*/
 console.log("====================");
 console.log("Section 4");
 console.log("---------");
+
+function getRandomInt(max) {
+return Math. floor (Math. random () * max);
+};
+
+const lastAcc= new Date();
+const usrRamdom=getRandomInt(users.length);
+let usrCopy={...users[usrRamdom],
+    
+    lastAccess : "("+
+        new Intl.DateTimeFormat('en',{day:"2-digit", month:"2-digit",year:"numeric"}).format(lastAcc)
+        + "," + new Intl.DateTimeFormat('en',{hour:"2-digit", minute:"numeric", second:"numeric", hourCycle: "h24"}).format(lastAcc) 
+        + ")",
+};
+// user with the last access field
+console.log("Last Access:");
+console.log(usrCopy);
+// original user
+console.log("Last Access:");
+console.log(users[usrRamdom]);

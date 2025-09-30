@@ -122,13 +122,17 @@
     <!--script para que la fecha de entrega sea igual o  mayor a la actual-->
     <script>
         // convertimos hora actual a tolocaleDateString YYYY/M/DD
-        let fechaActual = new Date();
-        let fechaFormat= Intl.DateTimeFormat('EU',{year:"numeric", month:"2-digit", day:"2-digit"}).format(fechaActual);
-        //console.log(fechaFormat);
+        let fechaActual = new Date().toISOString();
+        fechaActual=fechaActual.slice(0,fechaActual.indexOf("T"));
+       
         //tomamos el input del date y ponemos el atributo min para que la fecha no pueda ser anterior a la fecha actual
         let inputEntrega= document.getElementById('fecha-entrega');
-        inputEntrega.min=fechaFormat.toString();
-        //console.log(inputEntrega);
+        inputEntrega.addEventListener('focus', (event)=>{
+            event.target.setAttribute('min',fechaActual);
+            console.log(inputEntrega);
+        });
+        //inputEntrega.min=fechaFormat.toString();
+        console.log(inputEntrega);
         
         
     </script>

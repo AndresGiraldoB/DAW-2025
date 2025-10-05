@@ -1,0 +1,58 @@
+body {
+    font-family: "Bangers", system-ui;
+    background:  #56ab2f; 
+    color: #3a2e2e;
+    margin: 0;
+    padding: 20px;
+}
+
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 8px groove #c2a388;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+h1 {    
+    text-shadow: 2px 2px #fff;
+    margin-bottom: 30px;
+}
+
+.item {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Hacemos que la imagen no se deforme */
+    border: 4px solid #fff;
+    border-radius: 50%; /* hacemos que el contenido quede circular */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin: 10px;
+    transition: transform 0.3s ease; /* Efecto al pasar el ratón */
+}
+
+.item:hover {
+    transform: scale(1.1); /* Se agranda un poco al pasar el ratón */
+    box-shadow: 0 8px 25px rgba(255, 99, 71, 0.5); /* Sombra de color */
+}
+
+p {
+    font-size: 1.2em;
+    color: #4b2b1a;
+    margin-top: 40px;
+}
+/*elementos que flotan a la izquierda*/
+.izquierda{
+    float: left;
+}
+/*elementos que flotan a la derecha*/
+.derecha{
+    float: right;
+}
+/*elemento insertado para limpiar a ambos lados despues del float*/
+.clear-space{
+    clear: both;
+}

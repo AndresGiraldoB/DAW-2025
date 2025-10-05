@@ -1,0 +1,12 @@
+JAvier Andrés Giraldo Bejarano 2DAW Semipresencial
+
+Responde a las siguientes preguntas (adjunta un txt a la entrega respondiéndolas):
+1. ¿Qué ocurre con el display block? ¿Qué ancho ocupa? ¿Respeta el tamaño?¿Hace que se
+“empujen” la siguientes tarjetas abajo?
+R// con el display block se respetan las medidas del ancho y alto, ademas de padding y margin
+
+2. Responde la 1ª pregunta pero con display inline
+R// en el caso de inline, el elemento se comporta como elemento en linea, alto y ancho no afectan al igual que margin y padding
+
+3. Responde la 1ª pregunta pero con display inline-block
+R// en este caso el elemento adquiere propiedades de ambos elementos, se comporta como ambas y en este caso si afectan margin, padding, alto y ancho

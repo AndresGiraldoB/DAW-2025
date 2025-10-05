@@ -1,0 +1,75 @@
+/*body: Dale un fondo a la página, utiliza el estilo de fuente que hemos puesto en el html
+("Creepster", system-ui) y dale color y alineación del texto en las cajas ya que estas
+propiedades se heredan y así no repetimos código.*/
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+   
+}
+body{
+    /*color de fondo */
+    background-color: #2e2b41;
+    /*fuente */
+    font-family: 'Creepster', system-ui;
+    /*color texto*/
+    color: #d85656;
+    /*centrar texto*/
+    text-align: center;
+}
+
+/*atributos comunes para clase galeria
+2. Elementos con clase galería: como tenemos 3 secciones, dale estilo para que se
+diferencien, color de fondo, bordes, márgenes (internos/externos).*/
+.galeria{
+    /*borde*/
+    border: 2px dashed #ffa500;
+    /*margen externo*/
+    margin: 20px 10px;
+    /*margen interno 20px todos los lados*/
+    padding: 20px;
+    /*border radius para redondear bordes del borde*/
+    border-radius: 5px;
+
+    
+}
+/*3. Para cada tarjeta: realiza lo mismo, es decir, dale un fondo, color, margen, e importante
+dale un ancho y un alto con el objetivo de ver si esas propiedades se cumplen en cada caso.*/
+/*propiedades margin  si tienen efecto*/
+.tarjeta{
+    /*color background*/
+    background-color: #61576b;
+    /*borde de tarjetas*/
+    border: 2px solid #d85656;
+    /*margen exterior e interior*/
+    padding: 10px;
+    margin: 15px 10px;
+    /*ancho y alto para los elementos*/
+    height: 120px;
+    width: 180px;
+    /*color de fuente*/
+    color: white;
+    font-size: 1.5rem;
+    /*redondear bordes */
+    border-radius: 5px;
+  
+    
+}
+
+/*4. A cada tipo de galeria (inline/block/inline-block), establece su propiedad display
+correspondiente para ver qué ocurre.*/
+
+/*la propiedad se debe aplicar al elemento que deseamos cambiar su comportamiento*/
+.inline > .tarjeta{
+    display: inline;
+}
+
+.block > .tarjeta{
+    display: block;
+}
+
+.inline-block > .tarjeta{
+    display: inline-block;
+
+}

@@ -1,305 +1,222 @@
-/*AndresGiraldoB 2DAW SEMIPRESENCIAL*/
+/*AndresGiraldoB 2DAW semipresencial*/
 
-/*
-1. Maquetación (Layout):
-• El contenedor principal debe estar centrado, con un ancho máximo de 1200px y un
-ancho mínimo de 700px.
-• Crea una maquetación de dos columnas utilizando la propiedad float. El main debe
-ocupar aproximadamente el 68% del ancho y el aside el 30%.
-• Asegúrate de que el contenedor principal envuelva correctamente a los elementos
-flotantes (usando la técnica "clearfix" con overflow).
-*/
+/*restablecemos padding margin box-sizing*/
+
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+/*estilos base para el body*/
+body{
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #ebebeb;
+}
 
 
+/*contenedor principal*/
 
+/*• El contenedor principal debe estar centrado, con un ancho máximo de 1200px y un
+ancho mínimo de 700px.*/
 div.contenedor{
-    /*centrar el el contenedor*/
-    margin-left: auto;
-    margin-right: auto;
-    /*ancho maximo 1200px y minimo de 700px*/
     max-width: 1200px;
     min-width: 700px;
-    /*asegurar que el contenedor principal envuelva correctamente a los elementos flotantes*/
-    overflow: hidden;/*hidden visible scroll auto*/
+    margin-left: auto;
+    margin-right: auto;
+    /*• Asegúrate de que el contenedor principal envuelva correctamente a los elementos
+        flotantes (usando la técnica "clearfix" con overflow).*/
+    overflow: hidden;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
+/*Crea una maquetación de dos columnas utilizando la propiedad float. El main debe
+ocupar aproximadamente el 68% del ancho y el aside el 30%.*/
 
-/*crea dos columnas usando la propiedad float*/
+/*main hijo directo de div contenedor*/
 div.contenedor > main{
-    float: left;
-    /*debe tener un 68% de ancho*/
-    width: 68%;
+
+    width: 68%;/*ancho de 66%*/
+    float: left;/*flotar a la izquierda*/
 }
+/*aside hijo directo de div contenedor*/
 div.contenedor > aside{
+    width: 30%;/*ancho de 30%*/
     float: right;
-    /*debe tener un 30% de ancho*/
-    width: 30%;
 }
 
-/*
-2. Estilos del Formulario:
-• Los campos input y textarea deben tener un estilo consistente, ocupando el 100% del
-ancho de su contenedor.
-• El botón de envío debe ser un bloque que ocupe el 100% del ancho, con un color de
-fondo llamativo y un efecto :hover que cambie su color.*/
+/*Estilos de Formulario*/
 
-/*ancho de 100% para input, incluye input submit, textarea deben ocupar 100% del contenedor*/
-form[name="formu_contacto"] input, form[name="formu_contacto"] textarea{
+/*Los campos input y textarea deben tener un estilo consistente, ocupando el 100% del
+ancho de su contenedor*/
+/*input y textarea deben ocupar 100% de ancho al igual que el boton de enviar*/
+form[name="formu_contacto"] input, form[name="formu_contacto"] textarea, form input[value="Enviar"] {
+    /*deben ocupar el 100% contenedor*/
     width: 100%;
+    font-size: 1.3rem;
 }
-/*boton de envio color de fondo y efecto :hover que cambie el color*/
-form[name="formu_contacto"] input[type="submit"] {
-    background-color: #007bff;
+
+/*boton de envio ocupa 100% y color llamativo y un :hover para que cambie el color */
+input[type="submit"][value="Enviar"]{
+    background-color: #3d63df;
     color: #ffffff;
-}
-/*boton de envio :hover cambie su color*/
-form[name="formu_contacto"] input[type="submit"]:hover{
-    background-color: #0e20ac;
-}
-
-/*3. Selectores Avanzados (para el segundo artículo):*/
-
-/*Selector de hijo (>): El párrafo de introducción del segundo artículo debe tener un
-color y grosor de fuente distintivos.*/
-article.art_seg > p:first-of-type{
-    /*fuente*/
-    color: #28a745;
-    font-weight: bolder;
     
-
+}
+/*efecto hover que cambie de color*/
+input[type="submit"][value="Enviar"]:hover{
+    background-color: #082eab;
 }
 
-/*• Selector de hermano adyacente (+): La lista (ul) que sigue inmediatamente al
+/*3 Selectores Avanzados*/
+/*selector hijo > : parrafo de introduccion de segundo articulo color y grosor diferente*/
+article.art_seg > p:first-of-type {/*hay mas parrafos hijos directos y con esto seleccionamos hijos directos p el primero de este tipo*/
+    /*color de fuente diferernte*/
+    color: #099909;
+    /*grosor de fuente diferente*/
+    font-weight: 700;
+    padding-bottom: 3%;
+}
+
+/*Selector de hermano adyacente (+): La lista (ul) que sigue inmediatamente al
 párrafo de introducción debe tener un borde superior punteado.*/
-.art_seg p + ul{
-    border-top-style:dotted;
+.art_seg  p + ul{/*selector de hermano adyacente p + ul*/
+    border-top: 2px dotted #696969;/*borde superior punteado color gris*/
+    padding: 3% 5%;
+    line-height: 1.5rem;
+    
 }
 
 /*Selector de hermano general (~): El párrafo que aparece después de la lista (ul)
 debe tener un fondo y borde diferentes.*/
-article.art_seg ul ~ p{
-    background-color: #f8f9fa;
-    border: #b4b9be 1px groove;
-    border-radius: 5px;
-    /*fuente*/
-    color: #3a3a3a;
-    font-weight: lighter;
-    font-style: italic;
+.art_seg ul ~ p{ /*hermano general de llista ul*/
+    border: 1px solid #dcdcdc; /*borde gris solid 1px */
+    border-radius: 3px;/*redondear bordes*/
+    font-style: italic;/*fuente inclinada*/
+    background-color: #dcdcdc;
+    padding: 2%;
 }
 /*Pseudoclase :nth-child(): El segundo elemento de la lista debe ser de color rojo.*/
-article.art_seg ul > li:nth-child(2){
-    color:red;
+.art_seg ul > li:nth-child(2){/*segundo li que esta dentro de ul de articulo segundo*/
+    color: #ff0000;
+    font-weight: 700;
 }
 /*Pseudoclase :last-child: El último elemento de la lista debe tener un marcador de
-lista diferente (por ejemplo, el caracter " ").*/
-
-.art_seg li:last-child{
-    color: #007bff;
-    list-style-type: none;
+lista diferente (por ejemplo, el caracter " ➡️").*/
+.art_seg ul > li:last-child{
+   list-style: none;
+   color: #082eab;
 }
-.art_seg li:last-child::before{
- content: "\1F51C";   
+/*con :before pondremos el emoticono como marcador de lista*/
+.art_seg ul > li:last-child::before{
+    content: "➡️";
 }
 
-/*Pseudoelemento ::before: Añade el caracter "✔️ " antes de cada elemento de la lista.*/
-
-.art_seg li::before{
-    content: "✔️";
-    font-size: 1em;
-    
+/*Pseudoelemento ::before: Añade el caracter "✔️" antes de cada elemento de la lista.*/
+.art_seg ul > li::before {
+    content: "✔️";/*comtenido que añadimos antes de los li del segundo parrafo*/
 }
+
 /*Pseudoelemento ::after: Añade el texto " (Más detalles)" después del enlace final
 del artículo.*/
-article.art_seg > div > a::after{
-    content: "(Más detalles)";
-}
 
-
-
-/*estilos*/
-
-/*quitar padding y margin por defecto de los elementos * */
-*{
-    padding: 0;
-    margin: 0;
-}
-/*letra y tamaño para todos los elementos*/
-body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 16px;
-    background-color: #f1f1f1;
-}
-div.contenedor{
-    padding: 2% 0%;
-}
-
-/*propiedades comunes footer y header*/
-header, footer{
-    background-color: #3a3a3a;
-    color: #f8f9fa;
-    text-align: center;
-}
-/*propiedades comunes lista menu nav y lista de aside*/
-aside ul, article.art_seg ul{
-    list-style-type: none;
-}
-
-/*nav */
-header>nav>ul>li{
-    display: inline-block;
-    padding: 2%;
-    /*text-align: center;*/
-}
-nav>ul>li>a{
-    font-size: 0.7rem;
-    color:inherit;
+.art_seg  > p + a::after{
+    content: " (Más detalles)";
     
 }
-/*propiedades comunes enlaces*/
+
+/*estilos generales para cumplir con los estilos de la imagen*/
+
+/*estilos de enlace */
+.art_seg > p + a{
+    color: #dcdcdc;
+    background-color: #858591;
+    border-radius: 5px;
+    /*propiedad display block*/
+    display: block;
+    width: max-content;/*tamaño que necesita para mostrar su contenido*/
+    padding: 1% 2%;/*padding arriba abajo 1% laterales 2%*/
+    margin-top: 3%;
+    
+}
+
+/*estilos de header footer*/
+header, footer{
+    background-color: #343434;
+    color: #ffffff;
+    /*font family importado con @import*/
+    font-family: 'Arvo', 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+header{
+    font-size: 1.2rem;
+    height: 110px;
+}
+
+footer > p{
+    font-size: 0.8rem;
+    padding: 1%;
+}
+
+/*aplicamos display inline a los li y aplicamos pading*/
+nav>ul{
+    text-align: center;
+}
+nav>ul>li{
+    display: inline;
+    padding: 1%;
+    
+}
+nav>ul>li>a{
+    color: #ffffff;
+}
+/*estilos en comun para todas las listas del documento*/
+
 a{
     text-decoration: none;
 }
-
-/*propiedades comunes aside articles*/
-aside, article{
-    background-color: #fff;
-    border-radius: 15px;
-    margin: 2% 0.5% ;
-    
-}
-
-.contenedor > main >article{
-    font-size: 0.7rem;
-    padding: 3% 2%;
-    line-height: 2rem;
-}
-
-/*propiedades aside*/
-aside{
-    font-size: 0.7rem;
-    line-height: 1.5rem;
-    padding-left: 10px;
-}
-aside > h1{
-    font-size: 1rem;
-}
-aside > p{
-    font-style: italic;
-    border-top: 2px solid #007bff;
-    margin-top: 3%;
-    padding-top: 3%;
-}
-aside>ul a{
-    color: #007bff;
-}
-/*enlacce mas informacion*/
-.art_seg > div{
-    background-color: #575757;
-    width: 30%;
-    text-align: center;
-    margin-top: 5%;
-}
-.art_seg > div a{
-    color: #ffffff;
-}
-
-footer>p{
-    padding: 2%;
-}
-
-
-
-/*estilo para los demas elementos y para dejar colores definidos*/
-/*para eliminar margin y padding en elementos por defecto
-* {
-    padding: 0%;
-    margin: 0%;
-    font-size: 15px;
-    
-}
-header, footer{
-    background-color: #3a3a3a;
-    color: #f8f9fa;
-    text-align: center;
-}
-header > nav > ul{
+/*ul de aside*/
+aside>ul{
     list-style-type: none;
-    text-align: center;
 }
-header nav > ul > li{
-    display: inline-block;
-    padding: 2.5% 1%;
-}
-nav > ul > li > a{
-    color: inherit;
-    font-size: 0.7rem;
-    text-decoration: none;
 
+article, aside{
+    background-color: #ffffff;
+    padding: 3% 3% 2% 3%;
+    border-radius: 5px;
+    /*sombreas*/
+    box-shadow: 2px 2px 5px #858591;
 }
-header > h1 {
-    font-size: 1.6rem;
+
+article.art_seg{
+    margin-top: 2%;
+    box-shadow:-4px 1px 1px #099909;
+    margin-left: 5px;
 }
-.contenedor{
-    background-color: #f8f9fa;
+
+article h1, artilce p{
+    line-height: 5rem;
 }
-div.contenedor aside{
+/*fuentes estilos*/
+
+aside h1{
+    font-size: 1.3rem;
+    padding-bottom:5% ;
+    
+}
+aside h1 + p{
+    border-top: 2px solid #082eab;
+    font-style: oblique;
+    
+}
+aside ul, aside p{
+    padding-top: 5%;
     line-height: 1.5rem;
 }
-div.contenedor aside > ul{
-    list-style-type: none;
-    padding-top:4%;
+
+aside ul{
+    color: #3d63df;
 }
-
-div.contenedor aside > ul > li a{
-    
-    color: #007bff;
-    text-decoration: none;
-    font-size: 0.8rem;
-
-}
-
-div.contenedor aside > p{
-    font-style: italic;
-    padding-top: 4%;
-    margin-top:4%;
-    border-top: 2px solid #007bff;
-    font-size: 0.8rem;
-    font-weight: 100;
-}
-
-div.contenedor > main > article, div.contenedor > aside{
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    box-shadow: 1px 1px 5px #3a3a3a;
-    padding: 5% 0.7%;
-}
-div.contenedor > main > article{
-    font-size: small;
-}*/
-
-/*
-header, footer{
-    background-color: #3a3a3a;
-    color: #f8f9fa;
-    text-align: center;
-}
-footer {
-    font-size: 0.7rem;
-    font-weight: lighter;
-    overflow: hidden;
-
-    
-}
-
-div.contenedor{
-    background-color: #f4f4f4;
-}
-
-div.contenedor  article, div.contenedor  aside{
-    border-radius: 5px;
-    background-color: #f8f9fa;
-    box-shadow: 2px 2px 5px #3a3a3a;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    padding: 20px 15px;
-    
-}*/

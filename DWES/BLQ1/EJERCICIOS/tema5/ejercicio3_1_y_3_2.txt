@@ -1,0 +1,48 @@
+<!--Andres Giraldo B DAW Semipresencial-->
+1. Entra en las herramientas de desarrollo (F12) y pincha en la pestaña Network.
+Realiza una llamada a uno de los ejercicios como por ejemplo:
+http://localhost/ejercicios/prueba.php
+Aparecerán todas las peticiones de recursos de la llamada, pincha en la página php
+solicitada y se verá la información de la petición:
+
+recurso usado:
+http://localhost/DWES/BLQ1/EJEMPLOS/S1/primerContacto/contacto1.php
+Contesta las siguientes cuestiones:
+• El tipo de petición se ha realizado
+R// Petición de tipo GET
+• El código devuelto, ya sea de error o de respuesta OK
+R// Código de respuesta 200
+• La información de la Query String (ventana Payload). Las variables y sus valores
+recibidos.
+R//Sin información en la querystring
+
+
+2. De forma similar al ejercicio anterior, realiza la siguiente llamada:
+http://localhost/ejercicios/prueba.php?nombre=María&clase=2DAW
+
+recurso usado:
+http://localhost/DWES/BLQ1/EJEMPLOS/S1/primerContacto/contacto1.php?nombre=Andres&apellido=Giraldo
+queryString nombre=Andres&apellido=Giraldo
+
+Contesta las siguientes cuestiones:
+• El tipo de petición se ha realizado
+R// petición GET
+• El código devuelto, ya sea de error o de respuesta OK
+R// código devuelto 200
+• La información de la Query String (ventana Payload). Las variables y sus valores
+recibidos.
+R//la información devuelta generada por la petición
+
+GET
+scheme
+	http
+host
+	localhost
+filename
+	/DWES/BLQ1/EJEMPLOS/S1/primerContacto/contacto1.php
+
+variables
+nombre
+	Andres
+apellido
+	Giraldo

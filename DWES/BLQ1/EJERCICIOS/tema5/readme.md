@@ -110,44 +110,44 @@ el uso de las siguientes estructuras.
 --recomendaciones para arrays en views
 
 <pre>
-    <code>
-        <?php foreach($frutas as $fruta):?>
-            &lt;li&gt; <?=$fruta;?>&lt;/li&gt;
-        <?php endforeach;?>
-    </code>
+<code>
+&lt;?php foreach($frutas as $fruta):?&gt;
+    &lt;li&gt; &lt;?=$fruta;?&gt;&lt;/li&gt;
+&lt;?php endforeach;?&gt;
+</code>
 </pre>
 
 --arrays asociativos en las views
 <pre>
-    <code>
-        <?php foreach($frutas as $key=>$value):?>
-            &lt;li&gt;&lt;strong><?=$key;?>&lt;/strong&gt; <?=$value;?>&lt;/li&gt;
-        <?php endforeach;?>
-    </code>
+<code>
+&lt;?php foreach($frutas as $key=>$value):?&gt;
+    &lt;li&gt;&lt;strong>&lt;?=$key;?&gt;&lt;/strong&gt; &lt;?=$value;?&gt;&lt;/li&gt;
+&lt;?php endforeach;?&gt;
+</code>
 </pre>
 
 --condiciones sencillas
 
 <pre>
-    <code>
-        &lt;li&gt;
-            &lt;strong&gt;
-                <?=$fruta['piel'] ? 'fina' : 'gruesa';?>
-            &lt;/strong&gt;
-        &lt;/li&gt;
-    </code>
+<code>
+&lt;li&gt;
+    &lt;strong&gt;
+        &lt;?=$fruta['piel'] ? 'fina' : 'gruesa';?&gt;
+    &lt;/strong&gt;
+&lt;/li&gt;
+</code>
 </pre>
 
 otro ejemplo mas complejo
 
 <pre>
-    <code>
-        <?php if($fruta['piel']):?>
-            &lt;span class="icon"&gt;🥥&lt;/span&gt;
-        <?php else:?>
-            &lt;span class="icon"&gt;🍑&lt;/span&gt;
-        <?php endif;?>
-    </code>
+<code>
+&lt;?php if($fruta['piel']):?&gt;
+    &lt;span class="icon"&gt;🥥&lt;/span&gt;
+&lt;?php else:?&gt;
+    &lt;span class="icon"&gt;🍑&lt;/span&gt;
+&lt;?php endif;?&gt;
+</code>
 </pre>
 
 -- separar funciones reutilizables

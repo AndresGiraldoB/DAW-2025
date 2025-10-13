@@ -1,4 +1,4 @@
--variable superglobal $_GET[]
+<h1>-variable superglobal $_GET[]</h1>
 
 array asociativo que contiene los nombresDeCampo y su valor
 para acceder a el campo lo llamamos dentro de la variable superGlobal
@@ -112,7 +112,7 @@ el uso de las siguientes estructuras.
 <pre>
     <code>
         <?php foreach($frutas as $fruta):?>
-            <li> <?=$fruta;?></li>
+            &lt;li&gt; <?=$fruta;?>&lt;/li&gt;
         <?php endforeach;?>
     </code>
 </pre>
@@ -121,7 +121,7 @@ el uso de las siguientes estructuras.
 <pre>
     <code>
         <?php foreach($frutas as $key=>$value):?>
-            <li><strong><?=$key;?></strong> <?=$value;?></li>
+            &lt;li&gt;&lt;strong><?=$key;?>&lt;/strong&gt; <?=$value;?>&lt;/li&gt;
         <?php endforeach;?>
     </code>
 </pre>
@@ -130,11 +130,11 @@ el uso de las siguientes estructuras.
 
 <pre>
     <code>
-        <li>
-            <strong>
+        &lt;li&gt;
+            &lt;strong&gt;
                 <?=$fruta['piel'] ? 'fina' : 'gruesa';?>
-            </strong>
-        </li>
+            &lt;/strong&gt;
+        &lt;/li&gt;
     </code>
 </pre>
 
@@ -143,9 +143,9 @@ otro ejemplo mas complejo
 <pre>
     <code>
         <?php if($fruta['piel']):?>
-            <span class="icon">🥥</span>
+            &lt;span class="icon"&gt;🥥&lt;/span&gt;
         <?php else:?>
-            <span class="icon">🍑</span>
+            &lt;span class="icon"&gt;🍑&lt;/span&gt;
         <?php endif;?>
     </code>
 </pre>

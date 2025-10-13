@@ -7,7 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="AndresGiraldoB">
-    <title>Ejercicio 5-3</title>
+    <title>Ejercicio 3-5</title>
     <style>
         .error-msj{
             color:red;
@@ -32,7 +32,7 @@
     </style>
 </head>
 <body>
-    <h1>Ejercicio 5-3</h1>
+    <h1>Ejercicio 3-5</h1>
     <p>
         3. Crea una página llamada ejercicio_5_3.php que reciba como parámetro (GET) un
         nombre y muestre el texto ‘Bienvenido nombre!!!’ donde nombre será el pasado por

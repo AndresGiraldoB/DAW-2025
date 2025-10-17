@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+/*flex a los diferentes elementos*/
+
+.main-header{
+    /*display flex */
+    display: flex;
+    /*elementos se dividen el espacio del contenedor*/
+    justify-content: space-between;
+    /*backgroundcolor a header*/
+    background-color: #fff;
+    /*font-size*/
+    font-size: small;
+    /**padding para el contenedor header*/
+    padding: 0px 10px 0px 10px;
+    /*sombra*/
+    box-shadow: 2px 2px 5px #c5c5c5;
+    
+    .logo{
+        color: #4f70cc;
+        
+    }
+    /*main menu*/
+    .main-menu{
+        /*items row*/
+        display: flex;
+        gap:20px;
+        /*texto enlaces font-weight*/
+        font-weight: 600;
+        
+        
+        .submenu{
+            /*ocultamos el contenido del submenu*/
+            /*visibility: hidden;*/
+            display: none;
+            /*debe tener el mismo background color de la barra header*/
+            background-color: #fff;
+        }
+
+        .menu-item-has-submenu:hover{
+
+            .submenu{
+                /*visibility: visible;*/
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+.popular-destinations{
+    display:flex;
+    flex-direction: column;
+    /*para centrar en el eje secundario horizontal*/
+    align-items: center;
+
+    h2{
+        text-shadow: 2px 2px 5px #c5c5c5;
+    }
+    /*flex para el contenedor de las cards*/
+    .destinations-grid{
+        display: flex;/*flex row*/
+        justify-content: center;
+        gap: 20px;
+        width: 1100px;/*asignar ancho total al contenedor de las tarjetas*/
+        .destination-card{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            
+               .card-content{
+                    display: flex;
+                    flex-direction: column;
+                    background-color: #fff;
+                    padding:20px;
+                    flex:1 1 350px;
+                    box-shadow: 2px 2px 7px #c5c5c5;
+                    border-radius: 10px;
+                   
+                    /*elementos del card*/
+                    h3{
+                        color: #2c3e50;
+                    }
+                }
+        }
+        
+    
+        
+    }
+}
+
+
+.main-footer{
+    display: flex;
+    background-color: #1c3b5a;
+    color: #fff;
+    font-size: small;
+
+    /*los items se reparten todo el contenedor*/
+    justify-content: space-around;
+    padding: 20px;
+
+    /*footer en parte de abajo*/
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    /*parrafo*/
+    p{
+        font-weight: 100;
+    }
+    /*div social link*/
+    .social-links{
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 600;
+        
+        display: flex;
+        gap: 20px;
+    }
+
+}

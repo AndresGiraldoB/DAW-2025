@@ -2,23 +2,33 @@
 
 import { ProvincesService } from "./provinces.service.js";
 import { PropertiesService } from "./properties.service.js";
+//Map services and geolocation
+import { MyGeolocation } from "./my-geolocation.js";
+import { MapService } from "./map.service.js";
 
-
-
+//global variables
 const provincesService=new ProvincesService();
 const propertiesService=new PropertiesService();
-//select input select and add Event listener
-const selectProvinces=document.querySelector("select#province");
-selectProvinces.addEventListener("change",loadTowns);//if input change change towns list
-
-//call load all provinces
-loadProvinces();
-
-
 //load image mainPhoto image-preview
 const propertyForm=document.querySelector("form#property-form");
 const mainPhoto=propertyForm.elements.namedItem("mainPhoto");
 const imagePreview=document.querySelector("img#image-preview");
+//select input select and add Event listener
+const selectProvinces=document.querySelector("select#province");
+// event listener towns select
+const selectTown=document.querySelector("select#town");
+//global array towns
+let towns = new Array();
+
+//call load all provinces
+loadProvinces();
+getMyGeolocation();
+
+//Event Listener
+
+propertyForm.addEventListener("submit",addProperty);
+selectProvinces.addEventListener("change",loadTowns);//if input change change towns list
+selectTown.addEventListener("change",changeMap);
 
 mainPhoto.addEventListener("change",(e)=>{
     let file = e.target.files[0];
@@ -47,12 +57,6 @@ mainPhoto.addEventListener("change",(e)=>{
 });
 
 
-
-propertyForm.addEventListener("submit",addProperty);
-
-
-
-
 //aux functions
 function insertOption(optionV,parentNode){
     const newOption=document.createElement("option");
@@ -60,6 +64,22 @@ function insertOption(optionV,parentNode){
     newOption.label=optionV.name;
 
     parentNode.append(newOption);
+}
+
+function showMap(coords){
+    const divMaps=document.getElementById("map");
+    const map= divMaps.children;
+    
+    if(map.length > 0) Array.from(map).forEach((m)=> m.remove());
+    new MapService(coords, divMaps).createMarker(coords);
+
+}
+
+function changeMap(){
+    const townSelected=Number(this.value);
+    const findTown = towns.find((t)=> t.id === townSelected);
+    const townCoords= {latitude: findTown.latitude, longitude: findTown.longitude};
+    showMap(townCoords);
 }
 
 //Async Functions 
@@ -85,8 +105,8 @@ async function loadTowns(){
         if(oldOption) Array.from(oldOption).forEach((opt)=> {
             if(opt.value !== "") opt.remove();
         });
-
-        const towns=await provincesService.getTowns(idProvince);
+        //array of towns
+        towns=await provincesService.getTowns(idProvince);
         towns.forEach((town)=>{
             insertOption(town,selectTown);
             
@@ -126,4 +146,18 @@ async function addProperty(){
     }
     
 }
+
+
+//my geolocation
+async function getMyGeolocation(){
+    try{
+        //myCurrentCoords
+        const coords=await MyGeolocation.getLocation();
+        const myCoords={latitude: coords.latitude, longitude: coords.longitude};
+        showMap(myCoords);
+    }catch(error){
+        alert("Geolocation error: " + error);
+    }
+}
+
 

@@ -12,7 +12,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    
+    /*repartir el espacio*/
+    justify-content: space-between;
+    /*align-items: center;*/
 }
 
 a {
@@ -31,121 +33,80 @@ h2 {
     color: #2c3e50;
 }
 
-/*flex a los diferentes elementos*/
 
+
+
+
+/*ajuste de contenedores*/
 .main-header{
-    /*display flex */
-    display: flex;
-    /*elementos se dividen el espacio del contenedor*/
-    justify-content: space-between;
-    /*backgroundcolor a header*/
     background-color: #fff;
-    /*font-size*/
-    font-size: small;
-    /**padding para el contenedor header*/
-    padding: 0px 10px 0px 10px;
-    /*sombra*/
-    box-shadow: 2px 2px 5px #c5c5c5;
-    
-    .logo{
-        color: #4f70cc;
-        
-    }
-    /*main menu*/
+    box-shadow: 2px 2px 15px #e5e5e5;
+    /*ocupar espacio del padre body*/
+     flex:0.2 0.2 100%;/*tamaño inicial crecimiento y deccrecimiento*/ 
+    /*aplicar display flex*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;/*alinear en horizontal*/
+    align-items: center;/*alinear items en vertical*/
+    /*paddin para corregir espacio inicial y final*/
+    padding-left: 20px;
+    padding-right: 20px;
+    /*aplicar display al menu*/
     .main-menu{
-        /*items row*/
-        display: flex;
-        gap:20px;
-        /*texto enlaces font-weight*/
         font-weight: 600;
-        
-        
-        .submenu{
-            /*ocultamos el contenido del submenu*/
-            /*visibility: hidden;*/
-            display: none;
-            /*debe tener el mismo background color de la barra header*/
-            background-color: #fff;
-        }
+        /*aplicamos display flex*/
+        display: flex;
+        justify-content: space-evenly;
+         /*sseparacion entre elementos*/
+        gap: 15px;
 
-        .menu-item-has-submenu:hover{
+        /*submenu ocultar y mostrar*/
+        .menu-item-has-submenu{
 
             .submenu{
-                /*visibility: visible;*/
-                display: flex;
-                flex-direction: column;
+                /*visibility: collapse;*/
+                display: none;
+            }
+
+            &:hover{
+                .submenu{
+                    /*visibility: visible;*/
+                    display: flex;
+                    flex-direction: column;
+                }
             }
         }
     }
+
+    &>h1{
+        color: #50aef1;
+    }
+
 }
 
-.popular-destinations{
-    display:flex;
-    flex-direction: column;
-    /*para centrar en el eje secundario horizontal*/
-    align-items: center;
 
-    h2{
-        text-shadow: 2px 2px 5px #c5c5c5;
-    }
-    /*flex para el contenedor de las cards*/
-    .destinations-grid{
-        display: flex;/*flex row*/
-        justify-content: center;
-        gap: 20px;
-        width: 1100px;/*asignar ancho total al contenedor de las tarjetas*/
-        .destination-card{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            
-               .card-content{
-                    display: flex;
-                    flex-direction: column;
-                    background-color: #fff;
-                    padding:20px;
-                    flex:1 1 350px;
-                    box-shadow: 2px 2px 7px #c5c5c5;
-                    border-radius: 10px;
-                   
-                    /*elementos del card*/
-                    h3{
-                        color: #2c3e50;
-                    }
-                }
-        }
-        
-    
-        
-    }
+main{
+      /*ocupar espacio del padre body*/
+    flex: 3 3 100%;
 }
+
+
 
 
 .main-footer{
+    flex:0.5 0.5 100%;/*tamaño inicial crecimiento y deccrecimiento*/ 
+    background-color: #2c3e50;
+    color: #f4f4f4;
+    /*centrar en vertical*/
+     align-items: center;
+    /*aplicamos display flex*/
     display: flex;
-    background-color: #1c3b5a;
-    color: #fff;
-    font-size: small;
-
-    /*los items se reparten todo el contenedor*/
-    justify-content: space-around;
-    padding: 20px;
-
-    /*footer en parte de abajo*/
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    /*parrafo*/
-    p{
-        font-weight: 100;
-    }
-    /*div social link*/
+    justify-content: space-around;/*distribuye espacio entre los elementos pero con menos espacio en los extremos*/
+    /*enlaces footer*/
     .social-links{
-        font-family: 'Courier New', Courier, monospace;
         font-weight: 600;
-        
         display: flex;
-        gap: 20px;
+        /*sseparacion entre elementos*/
+        gap: 15px;
     }
-
 }

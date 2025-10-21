@@ -36,7 +36,7 @@ h2 {
 
 
 
-
+/*AndresGiraldoB Semipresencial*/
 /*ajuste de contenedores*/
 .main-header{
     background-color: #fff;
@@ -88,13 +88,62 @@ h2 {
 main{
       /*ocupar espacio del padre body*/
     flex: 3 3 100%;
+
+    h2{
+        padding-top: 50px;
+    }
+
+    /*estilos de items*/
+    .popular-destinations{/*contenedor principal donde esta titulo de galeria y galeria*/
+        display: flex;
+        flex-direction: column;
+        /**eje principal vertical*/
+            align-items: center;
+            justify-content: space-around;
+           
+
+        /*contendor destinations-grid contiene los contenedores que contienen los contenedores de tarjeta*/
+        .destinations-grid{
+            display: flex;
+            /*wrap para que las tarjetas puedan fluir si el espacio no es sufieciente*/
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            /*contenedor destination-card contiene el contenedor tarjeta*/
+            
+            .destination-card{
+              
+               
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 5px 5px 10px #e5e5e5;
+
+                .card-content{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    width: 300px;
+                    flex-grow: 1;
+                flex-shrink: 1;
+                flex-basis: 300px;
+
+                    h3{
+                        color: #2c3e50;
+                    }
+
+                }
+            }
+        }
+    }
 }
 
 
 
 
 .main-footer{
-    flex:0.5 0.5 100%;/*tamaño inicial crecimiento y deccrecimiento*/ 
+    flex:0.3 0.3 100%;/*tamaño inicial crecimiento y deccrecimiento*/ 
     background-color: #2c3e50;
     color: #f4f4f4;
     /*centrar en vertical*/
@@ -110,3 +159,36 @@ main{
         gap: 15px;
     }
 }
+
+
+/*
+
+    .popular-destinations{/*contenedor principal de elementos
+        display: flex;
+        flex-direction: column;
+        /*justificar en eje secundario horizontal
+        
+        /*justificar en eje principal vertical
+        align-items: center;
+        /*contenedor principal de galeria
+        .destinations-grid{
+            display: flex;
+            flex-wrap: wrap;
+            /*width: 1200px;/*ancho para el contenedor de las tarjetas
+            gap: 15px;
+            justify-content: center;/*justificar elementos eje principal horizontal
+            /*contenedor de tarjeta
+            .destination-card{
+                background-color: #fff;
+                
+                /*contenido de tarjeta
+                .card-content{
+                    display: flex;
+                    flex-direction: column;
+                    /*tamaño 
+                    flex: 1 1 50px;
+                }
+            }
+        }
+
+    }*/

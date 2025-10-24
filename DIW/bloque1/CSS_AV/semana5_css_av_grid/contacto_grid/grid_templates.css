@@ -1,0 +1,96 @@
+.container-ppl{
+    display: grid;
+    /**definimos header main footer*/
+    grid-template-rows: 150px 1fr 150px;/*header 200px footer 200px main 1fr*/
+    
+    /*definimos un alto para que el fr del row funcione*/
+    
+    padding: 20px;
+    background-color: #dadada;
+    border-radius: 15px;
+
+    header{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(500px, 1fr));
+
+        
+
+
+        &>h1+nav>ul>li{
+            display:inline-grid;
+            background-color: #dadada;
+        }
+    }
+}
+
+main{
+    display: grid;/*aplicamos grid*/
+    grid-template-columns: repeat(2,minmax(400px,1fr));/*columnas 2 de minimo 600px o 1fr*/
+    grid-template-rows: repeat(6,650px);/*fila numero autofit los items se ensanchan y cubren todo el espacio*/
+    gap: 10px;/*gap para que se separen los sections*/
+}
+
+
+
+header,footer{
+    background-color: rgb(118, 207, 178);
+    color: white;
+}
+
+section{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgb(80, 80, 80),
+    -2px -2px 5px rgb(80, 80, 80);
+}
+.grid-columns-rows-fijas{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,100px);
+    padding: 10px;
+
+}
+
+.grid-columns-rows-repeat-fill{
+    display: grid;
+    grid-template-columns: repeat(3,1fr); /*definimos columnas numero auto-fill, 1fr*/
+    grid-template-rows: repeat(auto-fill,100px);/*filas auto-fill, 60px*/
+    padding: 10px;
+    
+    .item-crf-autofill{
+        border: 1px dotted;
+    }
+
+
+}
+
+.grid-columns-rows-repeat-fit{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(50px,1fr));
+    grid-template-rows: repeat(auto-fit,100px);
+    padding: 10px;
+    .item-crf-autofit{
+        border: 1px dashed #555454;
+    }
+}
+
+
+
+.i-1{
+        background-color: #626d8a;
+    }
+.i-2{
+    background-color: #a56c6e;
+}
+.i-3{
+    background-color: #a5996c;
+}
+.i-4{
+    background-color: #6c9ca5;
+}
+.i-5{
+    background-color: #9d6ca5;
+}
+.i-6{
+    background-color: #6ca577;
+}

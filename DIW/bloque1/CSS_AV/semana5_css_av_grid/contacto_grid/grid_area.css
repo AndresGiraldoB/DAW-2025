@@ -1,0 +1,44 @@
+.container{
+    text-align: center;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 100px 1fr 100px;
+    gap: 20px;
+    /*grid-template-areas nos permite con las cadenas de texto y los nombres maquetar el layout*/
+    grid-template-areas: "header header header header"
+                          "aside main main main"
+                          "aside tarjeta-2 tarjeta-1 tarjeta-1"
+                          "footer footer footer footer"  ;
+    height: 100vh;
+
+    .item{
+        box-shadow: 2px 2px 5px #d2d2d2;
+       
+        &.header{
+            background-color: #636c9c;
+            grid-area: header;
+        }
+         /*se aplica grid area a los items y se pone el nombre dado en grid-area padre*/
+        &.main{
+            background-color: #c4a98d;
+            grid-area: main;
+        }
+        &.aside{
+            background-color: #639c6f;
+            grid-area: aside;
+        }
+        &.tarjeta-1{
+            background-color: #9c6371;
+            grid-area: tarjeta-1;
+        }
+        &.tarjeta-2{
+            background-color: #63959c;
+            grid-area: tarjeta-2;
+        }
+        &.footer{
+            background-color: #636c9c;
+            grid-area: footer;
+        }
+    }
+}

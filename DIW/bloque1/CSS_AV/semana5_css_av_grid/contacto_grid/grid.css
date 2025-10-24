@@ -1,0 +1,88 @@
+
+.container-principal{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(400px, 3fr));
+    padding: 30px;
+    gap:25px;
+    color: white;
+}
+
+.container-grid-f{
+    display: grid;
+    gap: 10px;
+    /*número de repeticiones y tamaños fijos*/
+    grid-template-columns: repeat(1,1fr);
+    padding: 10px;
+    color: teal;
+    .item-grid-f{
+        background-color: rgb(131, 151, 215);
+        padding: 20px;
+        text-align: center;
+        font-size: large;
+    }
+}
+
+
+
+
+.container-grid{
+    display: grid;
+    gap: 10px;
+    /*auto-fit una vez distribuido el contendor los elmentos se expanden para ocupar el espacio */
+    grid-template-columns: repeat(auto-fit,minmax(90px, 1fr));
+    padding: 10px;
+    color: teal;
+    .item-grid{
+        background-color: rgb(215, 139, 131);
+      
+        padding: 20px;
+        text-align: center;
+        font-size: large;
+    }
+}
+
+.container-grid-autofill{
+    display: grid;
+    gap:10px;
+    grid-template-columns: repeat(auto-fill,minmax(250px, 2fr));
+    padding: 10px;
+    color: darkcyan;
+    .item-grid-autofill{
+        background-color: rgb(193, 127, 181);
+        
+        padding: 20px;
+        text-align: center;
+        font-size: large;
+    }
+}
+
+.container-inline-grid-f{
+    display: inline-grid;
+    gap:10px;/*espacio entre pistas*/
+    /*número de repeticiones y tamaños fijos*/
+    grid-template-columns: repeat(2,2fr);
+    padding: 10px;
+    color: slategray;
+    .item-inline-grid-f{
+        background-color: rgb(197, 138, 113);
+        padding: 20px;
+        text-align: center;
+        font-size: large;
+    }
+}
+
+.container-inline-grid{
+    display: inline-grid;
+    gap:10px;/*espacio entre pistas*/
+    /*auto-fill crea tantas pistas de minimo 100px como quepan sin importar si estan vacios*/
+    /*minmax() nos permite que las pistas tengan un tamaño minimo y maximo es similar a responsive*/ 
+    grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+    padding: 10px;
+    color: slateblue;
+    .item-inline-grid{
+        background-color: rgb(113, 197, 169);
+        padding: 20px;
+        text-align: center;
+        font-size: large;
+    }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./grid.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-principal">
+
+        <div class="container-grid-f">
+            grid-template-columns: repeat(1,1fr);
+            <div class="item-grid-f">
+                Item grid 1 medida fija
+            </div>
+            <div class="item-grid-f">
+                Item grid 2 medida fija
+            </div>
+            <div class="item-grid-f">
+                Item grid 3 medida fija
+            </div>
+            <div class="item-grid-f">
+                Item grid 4 medida fija
+            </div>
+        </div>
+
+
+        <div class="container-grid">
+             grid-template-columns: repeat(auto-fit,minmax(90px, 1fr));
+            <div class="item-grid">
+                Item grid 1 autofit
+            </div>
+            <div class="item-grid">
+                Item grid 2 autofit
+            </div>
+            <div class="item-grid">
+                Item grid 3 autofit
+            </div>
+            <div class="item-grid">
+                Item grid 4 autofit
+            </div>
+        </div>
+
+        <div class="container-grid-autofill">
+            grid-template-columns: repeat(auto-fill,minmax(250px, 2fr));
+            <div class="item-grid-autofill">
+                Item grid 1 autofill
+            </div>
+            <div class="item-grid-autofill">
+                Item grid 2 autofill
+            </div>
+            <div class="item-grid-autofill">
+                Item grid 3 autofill
+            </div>
+            <div class="item-grid-autofill">
+                Item grid 4 autofill
+            </div>
+        </div>
+
+
+        <div class="container-inline-grid-f">
+            grid-template-columns: repeat(2,2fr);
+            <div class="item-inline-grid-f">
+                Item inline grid 1 medida fija
+            </div>
+            <div class="item-inline-grid-f">
+                Item inline grid 2 medida fija
+            </div>
+            <div class="item-inline-grid-f">
+                Item inline grid 3 medida fija
+            </div>
+            <div class="item-inline-grid-f">
+                Item inline grid 4 medida fija
+            </div>
+        </div>
+        <div class="container-inline-grid">
+            <div class="item-inline-grid">
+                Item inline grid 1
+            </div>
+            <div class="item-inline-grid">
+                Item inline grid 2
+            </div>
+            <div class="item-inline-grid">
+                Item inline grid 3
+            </div>
+            <div class="item-inline-grid">
+                Item inline grid 4
+            </div>
+        </div>
+    </div>
+</body>
+</html>

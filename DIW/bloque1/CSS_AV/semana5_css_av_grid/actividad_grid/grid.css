@@ -7,13 +7,18 @@ body {
     font-family: 'Poppins', sans-serif;
     padding: 20px;
     /*para elementos contenido es body*/
-
+    display: flex;
+    flex-direction: column;
+   
+   
 }
 
 
 
 .grid-container {
-
+    
+    /*posicionamos elemento en contenedor body para cenrtar elementos*/
+    
     /*AndrésGiraldoB DAW semipresencial*/
     /*aplicar display grid*/
     display: grid;

@@ -1,0 +1,104 @@
+<div class="card mb-4">
+  <div class="card-header bg-success text-white">Add product</div>
+  <div class="card-body">
+   <!-- <form (ngSubmit)="addProduct()"> --><!--directiva ngSubmit importar FormsModule-->
+            <form (ngSubmit)="addProduct(productForm)" #productForm="ngForm"><!--usamos variables # para pasar directiva ngForm que pasaremos a metodo add para limpiar campos del formulario-->
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end">Description</span>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="description" [(ngModel)]="newProducto.description" /> <!-- event-binding vinculo bi-direccional del input y el controllador -->
+        </div>
+      </label>
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end">Price</span>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" name="price" [(ngModel)]="newProducto.price" />
+        </div>
+      </label>
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end">Available</span>
+        <div class="col-sm-10">
+          <input  type="date"  class="form-control"  name="available" [(ngModel)]="newProducto.available" />
+        </div>
+      </label>
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end"> Image</span>
+        <div class="col-sm-10">
+            <!--pasamos el evento $event -->
+             <!--pasamos el fileName el campo para que contenga el nombre del fichero-->
+         <!-- <input type="file" class="form-control" accept="image/*"  name="fileName" (change)="changeImage()" [(ngModel)]="fileName" />-->
+          <!--ahora enviamos el input directamente #-->
+          <input type="file" class="form-control" accept="image/*"  name="fileName" #imgInput (change)="changeImage(imgInput)" ngModel/>
+        </div>
+      </label>
+     
+      <div class="row mb-3">
+        <div class="col-sm-10 offset-sm-2">
+          <img class="product-img" alt="" />
+        </div>
+      </div>
+      
+
+      <div class="mb-3 row">
+        <div class="offset-sm-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Card con la lista de productos aquí -->
+
+
+
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Mi lista de productos
+  </div>
+  <div class="card-block">
+    <div class="table-responsive">
+      <table class="table table-striped m-0">
+        <thead>
+            <tr>
+                <th>
+                    @let buttonText=(showImage?'Hide':'Show') + ' images';
+                    <button class="btn btn-sm" [class]="{
+                        'btn-danger':showImage,
+                        'btn-primary': !showImage
+                    }" (click)="toggleImage()">
+                    <!--mostramos mensaje de oculatr o mostrar imagen del boton segun el bool showImage-->
+                    <!--{{showImage?'Hide':'Show'}} images-->
+                    <!--Metodo con varaibles let-->
+                    <!--usaremos una varable let para el texto del boton segun el valor de showImage-->
+                    {{buttonText}}
+                    </button>
+                </th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Disponible</th>
+            </tr>
+        </thead>
+
+    
+
+        <tbody>
+          <!-- Por ahora vacío. Aquí van los productos -->
+           @for(product of products; track product.id){
+            <!--uso de variables let para guardar la imagen-->
+            @let img=product.imageUrl;
+            <tr>
+                <!--validamos showImage-->
+               <!-- <td>@if(showImage) { <img [src]="product.imageUrl" alt=""> }</td>-->
+                <!--usando variables let y class none-->
+                <td><img [src]="img" [class.d-none]="!showImage" alt="" /></td>
+                <td> {{product.description}}</td>
+                <td> {{product.price}}</td>
+                <td> {{product.available}}</td>
+            </tr>
+           }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

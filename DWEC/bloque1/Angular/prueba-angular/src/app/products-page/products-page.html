@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    {{title}}
+  </div>
+  <div class="card-block">
+    
+    <div class="table-responsive">
+        <table class="table table-striped m-0">
+            <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Disponible</th>
+            </tr>
+            </thead>
+            <tbody>
+            @for(product of products; track product.id){
+                <tr>
+                    <!--vincular atributos a elemento html en este caso el atributo src-->
+                    <td><img [src]="product.imageUrl" [alt]="product.description"></td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.available}}</td>
+                </tr>
+            }@empty{
+                        <h3 class="p-4"> No hay productos disponibles</h3>
+                    }
+            </tbody>
+        </table>
+    </div>
+   
+  
+  </div>
+</div>
+<!-- @if(products.length){
+        <div class="table-responsive">
+            <table class="table table-striped m-0">
+                <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Disponible</th>
+                </tr>
+                </thead>
+                <tbody>
+              
+                </tbody>
+            </table>
+        </div>
+    }@else {
+        <h3 class="p-4"> No hay productos disponibles</h3>
+    }
+  
+  </div>-->

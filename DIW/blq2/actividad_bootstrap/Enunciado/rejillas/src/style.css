@@ -1,0 +1,36 @@
+
+.mi-alto50px{
+    height: 50px;
+}
+.mi-alto150px{
+    height: 150px;
+}
+.mi-alto70px{
+    height: 70px;
+}
+.mi-alto550px{
+    height: 550px;
+}
+
+.mis-cajas-ej2{
+    height: 50px;
+}
+
+.cl-naranja{
+    background-color: rgb(240, 149, 46);
+}
+
+
+@media(max-width:767.98px){
+     .cl-sm-xs-gray{
+        background-color: rgb(184, 178, 178);
+     }
+}
+@media(max-width:575.98px){
+     .cl-xs-green{
+        background-color: rgb(11, 221, 151);
+     }
+     .cl-sm-xs-gray{
+        background-color: rgb(51, 51, 51);
+     }
+}

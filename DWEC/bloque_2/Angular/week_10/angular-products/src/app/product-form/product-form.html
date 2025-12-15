@@ -1,0 +1,49 @@
+<div class="card mb-4">
+  <div class="card-header bg-success text-white">Add product</div>
+  <div class="card-body">
+   <!-- <form (ngSubmit)="addProduct()"> --><!--directiva ngSubmit importar FormsModule-->
+            <form (ngSubmit)="addProduct(productForm)" #productForm="ngForm"><!--usamos variables # para pasar directiva ngForm que pasaremos a metodo add para limpiar campos del formulario-->
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end">Description</span>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="description" [(ngModel)]="newProduct.description" /> <!-- event-binding vinculo bi-direccional del input y el controllador -->
+        </div>
+      </label>
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end">Price</span>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" name="price" [(ngModel)]="newProduct.price" />
+        </div>
+      </label>
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end">Available</span>
+        <div class="col-sm-10">
+          <input  type="date"  class="form-control"  name="available" [(ngModel)]="newProduct.available" />
+        </div>
+      </label>
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end"> Image</span>
+        <div class="col-sm-10">
+            <!--pasamos el evento $event -->
+             <!--pasamos el fileName el campo para que contenga el nombre del fichero-->
+         <!-- <input type="file" class="form-control" accept="image/*"  name="fileName" (change)="changeImage()" [(ngModel)]="fileName" />-->
+          <!--ahora enviamos el input directamente #-->
+          <input type="file" class="form-control" accept="image/*"  name="fileName"  encodeBase64 (encoded)="newProduct.imageUrl=$event" ngModel/>
+        </div>
+      </label>
+     
+      <div class="row mb-3">
+        <div class="col-sm-10 offset-sm-2">
+          <img class="product-img" alt="" [src]="newProduct.imageUrl" />
+        </div>
+      </div>
+      
+
+      <div class="mb-3 row">
+        <div class="offset-sm-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

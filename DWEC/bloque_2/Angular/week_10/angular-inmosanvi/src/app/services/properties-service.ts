@@ -1,35 +1,37 @@
 import { HttpClient, httpResource } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { PropertiesResponse } from '../interfaces/responses/properties-response';
+import { SinglePropertyResponse } from '../interfaces/responses/single-property-response';
+import { map, Observable } from 'rxjs';
 import { PropertyInsert } from '../interfaces/property-insert';
 import { Property } from '../interfaces/property';
-import { map, Observable } from 'rxjs';
-import { SinglePropertyResponse } from '../interfaces/responses/single-property-response';
+import { PropertiesResponse } from '../interfaces/responses/properties-response';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PropertiesService {
-  
-  #propertiesUrl="http://localhost:3000/properties";
+
+  #propertiesUrl="properties";
   #http=inject(HttpClient);
 
-  public readonly propertiesResource= httpResource<PropertiesResponse>(
-    ()=> `properties`,
-    {defaultValue: {properties:[]}}
+  readonly propertiesResource= httpResource<PropertiesResponse>(
+    ()=> `${this.#propertiesUrl}`,
+    {defaultValue:{properties: []}},
   );
 
-  addProperty(property:PropertyInsert):Observable<Property>{
-    return this.#http.post<SinglePropertyResponse>(this.#propertiesUrl,property)
-      .pipe(//nos permite usar el valor devuelto de las funciones dentro de esta
-        map((resp)=>resp.property),//nos permite manipular la respuesta del servidor como un then
-      );
+  addProperty(property: PropertyInsert): Observable<Property>{
+    return this.#http.post<SinglePropertyResponse>(
+      //parametros pasados a post
+      this.#propertiesUrl,
+      //objeto propertyInsert
+      property
+    ).pipe(//pipe nos permite compartir entre las funciones dentro de el los valores devueltos por las funciones dentro de pipe
+      //map nos permite operar en la respuesta de la peticion como un then
+      map((resp)=> resp.property),
+    );
   }
-
-  deleteProperty(id:number):Observable<void>{
-    //el servidor respondera void si todo esta bien
-    return this.#http
-      .delete<void>(`${this.#propertiesUrl}/${id}`);
+ 
+  deleteProperty(id: number): Observable<void>{
+    return this.#http.delete<void>(`${this.#propertiesUrl}/${id}`);
   }
-  
 }

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+    <script defer src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./src/main.js"></script>
+    
+</head>
+<body class="d-flex min-vh-100 flex-column">
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-4">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                <img src="/vite.svg" alt="logo" width="30" height="24" class="d-inline-block align-text-top">
+                Mi cajón desastre
+            </a>
+            <!--boton menu hamburguesa-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas" aria-controls="menuOffcanvas" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+       
+            <!--menu offcanvas-->
+            <div class="offcanvas offcanvas-end"  tabindex="-1" id="menuOffcanvas" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menú Offcanvas</h5>
+                    <button class="btn-close" type="button" data-bs-dismiss="offcanvas" aria-label="close"></button>
+                </div>
+                <div class="offcanvas-body justify-content-lg-end">
+                    <ul class="navbar-nav  mb-2 mb-lg-0 " role="tablist" ><!--role=tablist para accesibilidad-->
+                        <!--nav-item li y a nav-link-->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" aria-current="page" data-bs-toggle="tab" id="inicio-tab" 
+                            data-bs-target="#inicio-tab-pane" role="tab" aria-controls="inicio-tab-pane" aria-selected="true"
+                            >Inicio</a><!-- aria-current="page" para seleccionar area visible al cargar-->
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="tab" id="card-groups-tab" 
+                            data-bs-target="#card-groups-tab-pane" role="tab" aria-controls="card-groups-tab-pane" aria-selected="false"
+                            >Card groups</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="tab" id="scrollspy-tab" 
+                            data-bs-target="#scrollspy-tab-pane" role="tab" aria-controls="scrollspy-tab-pane" aria-selected="false"
+                            >Scrollspy</a>
+                        </li>
+                        <!--desplegable class dropdown a->dropdown-toggle-->
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="desplegableMenuLg" role="button" data-bs-toggle="dropdown" aria-expanded="false">Varios</a>
+                            <ul class="dropdown-menu" aria-labelledby="desplegableMenuLg">
+                                <li><a href="#" class="dropdown-item" data-bs-toggle="tab" id="alert-tab"
+                                    data-bs-target="#alert-tab-pane" role="tab" aria-controls="alert-tab-pane" aria-selected="false"
+                                    >Alert</a></li>
+                                <li><a href="#" class="dropdown-item" data-bs-toggle="tab" id="accordion-tab"
+                                    data-bs-target="#accordion-tab-pane" role="tab" aria-controls="accordion-tab-pane" aria-selected="false"
+                                    >Accordion</a></li>
+                                <li><a href="#" class="dropdown-item" data-bs-toggle="tab" id="modales-tab"
+                                    data-bs-target="#modales-tab-pane" role="tab" aria-controls="modales-tab-pane" aria-selected="false"
+                                    >Modales</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a href="#" class="dropdown-item nav-link disabled" data-bs-toggle="tab" id="deshabilitado-tab"
+                                    data-bs-target="#deshabilitado-tab-pane" role="tab" aria-controls="deshabilitado-tab-pane" aria-selected="false"
+                                    >Deshabilitado</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="tab" id="sobre-nosotros-tab"
+                            data-bs-target="#sobre-nosotros-tab-pane" role="tab" aria-controls="sobre-nosotros-tab-pane" aria-selected="false"
+                            >Sobre nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="btn dark-light" role="button">☀️</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="tab-content my-2 py-5 px-5 bg-body " id="contenidoWeb">
+       
+        
+        <div class="tab-pane fade show active container  text-center" id="inicio-tab-pane" role="tabpanel" aria-labelledby="inicio-tab" tabindex="0">
+            
+                <p class="display-4 pb-3">Diseño de Intefaces Web</p>
+                <div class="carousel slide bg-body-tertiary" id="miCarrusel" data-bs-ride="carousel" ><!--data-bs-ride="true" para que se haga autoslide-->
+                
+                    <!--indicadores-->
+                    <div class="carousel-indicators ">
+                        <button type="button" data-bs-target="#miCarrusel" data-bs-slide-to="0" class="active " aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#miCarrusel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#miCarrusel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#miCarrusel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#miCarrusel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#miCarrusel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                    </div>
+                    <!--contenedor de carrousels-->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <!--solucion limitar tamaño con aspect ratio envolver la img en div-->
+                            <div class="ratio ratio-16x9">
+                                <img src="/images/cat-colors.png" alt="cat colors" class="d-block w-100 object-fit-cover">
+                            </div>
+                            <!--<img src="/images/property1.webp" alt="property 1" class="d-block w-100 ">-->
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>First slide label</h5>
+                                <p>Some representative placeholder content for the first slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="ratio ratio-16x9">
+                                <img src="/images/cat-ice-cream.png" alt="icecream-cat" class="d-block w-100 object-fit-cover">
+                            </div>
+                            <!--<img src="/images/property2.webp" class="d-block w-100 " alt="property2">-->
+                            <div class="carousel-caption d-none d-md-block ">
+                                <h5>Second slide label</h5>
+                                <p>Some representative placeholder content for the second slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="ratio ratio-16x9">
+                                <img src="/images/catMag.jpg" alt="Magic Cat" class="d-block w-100 object-fit-cover">
+                            </div>
+                            <!--<img src="/images/property3.webp" class="d-block w-100 " alt="property3">-->
+                            <div class="carousel-caption d-none d-md-block ">
+                                <h5>Third slide label</h5>
+                                <p>Some representative placeholder content for the third slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="ratio ratio-16x9">
+                                <img src="/images/coffee.png" alt="Coffee-cup" class="d-block w-100 object-fit-cover">
+                            </div>
+                            <!--<img src="/images/property4.webp" class="d-block w-100" alt="property4">-->
+                            <div class="carousel-caption d-none d-md-block ">
+                                <h5>Fourth slide label</h5>
+                                <p>Some representative placeholder content for the third slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="ratio ratio-16x9">
+                                <img src="/images/moon.png" alt="Moon" class="d-block w-100 object-fit-cover">
+                            </div>
+                            <!--<img src="/images/JavaScript.webp" class="d-block w-100" alt="coffee-cup">-->
+                            <div class="carousel-caption d-none d-md-block ">
+                                <h5>Fifth slide label</h5>
+                                <p>Some representative placeholder content for the third slide.</p>
+                            </div>
+                        </div>
+                            <div class="carousel-item">
+                            <div class="ratio ratio-16x9">
+                                <img src="/images/radio.jpg" alt="Radio" class="d-block w-100 object-fit-cover">
+                            </div>
+                            <!--<img src="/images/JavaScript.webp" class="d-block w-100" alt="coffee-cup">-->
+                            <div class="carousel-caption d-none d-md-block ">
+                                <h5>Sixth slide label</h5>
+                                <p>Some representative placeholder content for the third slide.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--controles-->
+                    <button class="carousel-control-prev " type="button" data-bs-target="#miCarrusel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next " type="button" data-bs-target="#miCarrusel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon " aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            
+
+        </div>
+
+        <div class="tab-pane fade" id="card-groups-tab-pane" role="tabpanel" aria-labelledby="card-groups-tab" tabindex="0">
+            <p class="display-3 text-center pb-3">Card groups</p>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100 bg-body-tertiary">
+                        <div class="ratio ratio-16x9">
+                            <img src="images/cat-ice-cream.png" class="card-img-top object-fit-cover" alt="cat-icecream">
+                        </div>
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 bg-body-tertiary">
+                        <div class="ratio ratio-16x9">
+                            <img src="images/cat-colors.png" class="card-img-top object-fit-cover" alt="cat-colors">
+                        </div>
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card h-100 bg-body-tertiary">
+                        <div class="ratio ratio-16x9">
+                            <img src="images/catMag.jpg" class="card-img-top object-fit-cover" alt="magic-cat">
+                        </div>
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card h-100 bg-body-tertiary">
+                        <div class="ratio ratio-16x9">
+                            <img src="images/moon.png" class="card-img-top object-fit-cover" alt="moon">
+                        </div>
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 bg-body-tertiary">
+                        <div class="ratio ratio-16x9">
+                            <img src="images/radio.jpg" class="card-img-top object-fit-cover" alt="radio">
+                        </div>
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 bg-body-tertiary">
+                        <div class="ratio ratio-16x9">
+                            <img src="images/coffee.png" class="card-img-top object-fit-cover" alt="coffee">
+                        </div>
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="scrollspy-tab-pane" role="tabpanel" aria-labelledby="scrollspy-tab" tabindex="0">
+            <p class="display-3 text-end  pb-3">Scrollspy</p>
+            <div class="mb-5">
+                
+                <button class="btn btn-secondary btn-lg" data-bs-toggle="popover" 
+                data-bs-title="Titulo de Popover" data-bs-content="Para los Popover lo mas importante es el atributo data-bs-toggle='popover' e incluir el script js">
+                    Custom popover dismissible
+                </button>
+            </div>
+            <div class="container ">
+                <div class="row"> 
+                    <div class="col-4" >
+                        <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#item-1">Curso de JavaScript</a>
+                                <nav class="nav nav-pills flex-column">
+                                    <a class="nav-link ms-3 my-1" href="#item-1-1">Curso de TypeScript</a>
+                                    <a class="nav-link ms-3 my-1" href="#item-1-2">Curso de Angular</a>
+                                </nav>
+                                <a class="nav-link" href="#item-2">Curso de Html</a>
+                                <a class="nav-link" href="#item-3">Curso de Css</a>
+                                <nav class="nav nav-pills flex-column">
+                                    <a class="nav-link ms-3 my-1" href="#item-3-1">Curso de Bootstrap</a>
+                                    <a class="nav-link ms-3 my-1" href="#item-3-2">Curso de Tailwind</a>
+                                </nav>
+                            </nav>
+                        </nav>
+                    </div>
+
+                    <div class="col-8 min-vh-50" >
+                        <div data-bs-spy="scroll"  id="scrollspy-container" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example position-relative overflow-auto h-50" tabindex="0">
+                            <div id="item-1">
+                                <h4>Curso de JavaScript</h4>
+                                <p>
+                                    El lenguaje de programacion que utilizan los navegadores para ejecutar aplicaciones web. 
+                                    Este curso es la base para aprender otros frameworks como Angular, React o Vue. 
+                                    Úsalo también para crear aplicaciones de servidor con NodeJs.
+                                </p>
+                            </div>
+                            <div id="item-1-1">
+                                <h5>Curso de TypeScript</h5>
+                                <p>
+                                    TypeScript es un lenguaje que extiende la sintaxis de JavaScript. 
+                                    Añade características nuevas en la programación orienta a objetos, y permite el tipado estricto. 
+                                    Esto permite detectar errores de código en tiempo de desarrollo, 
+                                    así como habilitar el autocompletado de código en todo momento.
+                                </p>
+                            </div>
+                            <div id="item-1-2">
+                                <h5>Curso de Angular</h5>
+                                <p>
+                                    Uno de los frameworks más utilizado para el desarrollo de aplicaciones web en el lado del cliente. 
+                                    Especialmente orientado a la creación de grandes aplicaciones, 
+                                    pero sirve perfectamente para crear cualquier tipo de aplicación web.
+                                </p>
+                            </div>
+                            <div id="item-2">
+                                <h4>Curso de Html</h4>
+                                <p>Etiquetas más importantes de HTML</p>
+                            </div>
+                            <div id="item-3">
+                                <h4>Curso de Css</h4>
+                                <p>Flex, grid, variables, rules, colores, unidades, gradientes, animaciones, nesting, etc.</p>
+                            </div>
+                            <div id="item-3-1">
+                                <h5>Curso de Bootstrap</h5>
+                                <p>
+                                    Bootstrap es un conjunto de herramientas de código abierto para diseño de sitios y aplicaciones web. 
+                                    Contiene plantillas de diseño con tipografía, formularios, botones, cuadros, menús de navegación y 
+                                    otros elementos de diseño basado en HTML y CSS, así como extensiones de JavaScript adicionales. 
+                                    A diferencia de muchos frameworks web, solo se ocupa del desarrollo front-end.
+                                </p>
+                            </div>
+                            <div id="item-3-2">
+                                <h5>Curso de Tailwind</h5>
+                                <p>
+                                    Tailwind CSS funciona revisando todos sus archivos HTML, componentes JS y otras plantillas en busca de clases, 
+                                    generando los estilos correspondientes y luego nos crae un archivo CSS estático.
+                                    <br>
+                                    Es rápido, flexible y confiable, sin tiempo de ejecución.
+                                </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="tab-pane fade" id="alert-tab-pane" role="tabpanel" aria-labelledby="alert-tab" tabindex="0">
+            <p class="display-3 text-center">Varios - Alert</p>
+            <div id="liveAlertPlaceholder"></div>
+            <button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
+
+        </div>
+        <div class="tab-pane fade" id="accordion-tab-pane" role="tabpanel" aria-labelledby="accordion-tab" tabindex="0">
+            <p class="display-3 text-start">Varios - Accordion</p> 
+
+            <div class="accordion min-vh-100" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Accordion Item #1
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="card w-75 bg-body-tertiary">
+                                <div class="ratio ratio-16x9">
+                                    <img src="images/moon.png" class="card-img-top object-fit-cover" alt="moon">
+                                </div>
+                
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            
+                                </div>
+                                <div class="card-footer">
+                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Accordion Item #2
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="card text-center">
+                                <div class="card-header">
+                                    Featured
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Special title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                                <div class="card-footer text-body-secondary">
+                                    2 days ago
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Accordion Item #3
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <!---->
+                            <div class="row row-cols-1 row-cols-md-2 g-4">
+                                <div class="col">
+                                    <div class="card text-center">
+                                        <div class="card-header">
+                                            Featured
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Special title treatment</h5>
+                                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card text-center">
+                                        <div class="card-header">
+                                            Featured
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Special title treatment</h5>
+                                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <!---->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="modales-tab-pane" role="tabpanel" aria-labelledby="modales-tab" tabindex="0">
+            <p class="display-3 text-start">
+                Varios - Modales
+            </p>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Launch static backdrop modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Titulo de mi Modal</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            No hay tiempo para ver series ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">En otra vida</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tab-pane fade" id="deshabilitado-tab-pane" role="tabpanel" aria-labelledby="deshabilitado-tab" tabindex="0">Varios - Deshabilitado</div>
+
+        <div class="tab-pane fade" id="sobre-nosotros-tab-pane" role="tabpanel" aria-labelledby="sobre-nosotros-tab" tabindex="0">
+            <p class="display-3 ">Sobre Nosotros</p>
+            <form action="#" class="px-5">
+
+                <div class="row g-2 mb-3">
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">N</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="nombreInput" placeholder="Jordi" required>
+                                <label for="nombreInput">Nombre</label>
+                            </div>   
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">A</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="apellidoInput" placeholder="Andy" required>
+                                <label for="apellidoInput">Apellido</label>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-2 mb-3">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="bi bi-envelope-at"></i></span>
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="emailInput" placeholder="andy@miemail.com" required>
+                                <label for="emailInput">Email</label>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row g-2 mb-3">
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="telefonoInput" placeholder="Jordi" required>
+                                <label for="telefonoInput">Telefono</label>
+                            </div>   
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">D</span>
+                            <div class="form-floating">
+                                <select name="selectDepartamento" id="selectDepartamento" class="form-select">
+                                    <option selected>Elige una opción...</option>
+                                    <option value="Administración">Administración</option>
+                                    <option value="RRHH">Recursos Humanos</option>
+                                    <option value="Marketing">Marketing</option>
+                                </select>
+                                <label for="selectDepartamento">Departamento</label>
+                            </div>   
+                        </div>
+                    </div>
+                </div>    
+                       
+                <div class="row g-2 mb-3">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="bi bi-card-text"></i></span>
+                            <div class="form-floating">
+                                <textarea class="form-control" name="mensajeInput" id="mensajeInput"></textarea>
+                                <label for="mensajeInput">Tu mensaje detallado</label>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="row g-2 mb-3">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Enviar Formulario</button> 
+                    </div>
+                </div>
+
+                     
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-body-tertiary text-center  py-4">
+        Curso 2025-26 &copy; IES San Vicente
+    </footer>
+    
+    
+</body>
+</html>

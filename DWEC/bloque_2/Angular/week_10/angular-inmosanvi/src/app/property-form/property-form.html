@@ -4,18 +4,42 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label for="province" class="block text-gray-700 font-bold mb-2">Province</label>
-            <select id="province" name="province" required [(ngModel)]="newProperty.province"
+            <!--<select id="province" name="province" required [(ngModel)]="newProperty.province"-->
+            <select id="province" name="province" required [(ngModel)]="province"
                 class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
-                    <option value="">Select a province</option>
-              
+                 <option value="0">Select a province</option>
+                    @let errorProvince = provincesResource.error();
+                    @if(provincesResource.isLoading()){
+                         <p>Loading Provinces...<p></p>
+                    }@else if(errorProvince){
+                        <p>Error {{ errorProvince | json }}</p>
+                    }@else{
+                        @for(province of provincesResource.value().provinces; track province.id){
+                             <option [value]="province.id">{{province.name}}</option>
+                        }
+            }
+                   
+
                 </select>
             </div>
             <div>
                 <label for="town" class="block text-gray-700 font-bold mb-2">Town</label>
-                    <select id="town" name="town" required [(ngModel)]="newProperty.town"
+                <!-- <select id="town" name="town" required [(ngModel)]="newProperty.town"-->
+                    <select id="town" name="town" required [(ngModel)]="newProperty.townId"
                     class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
-                    <option value="">Select a town</option>
-              
+                    <option value="0">Select a town</option>
+                    
+                    @let errorTowns= townsResource.error();
+                    @if(townsResource.isLoading()){
+                        <p>Loading Towns...</p>
+                    }@else if(errorTowns){
+                        <p>Error {{ errorProvince | json }}</p>
+                    }@else {
+                        @for(town of townsResource.value().towns; track town.id){
+                            <option [value]="town.id">{{town.name}}</option>
+                        }
+            }
+
                 </select>
             </div>
         </div>
@@ -29,9 +53,13 @@
             <input type="text" id="title" name="title" required pattern="[A-Z][a-zA-Z0-9 ]*" [(ngModel)]="newProperty.title"
             class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
-         <div class="mt-6">
+        <div class="mt-6">
             <label for="description" class="block text-gray-700 font-bold mb-2">Description</label>
-            <textarea type="text" id="description" name="description" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            <textarea type="text" id="description" name="description" required 
+            [(ngModel)]="newProperty.description"
+            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+            </textarea>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
             <div>
@@ -58,20 +86,24 @@
             </div>
             <div>
                 <label for="mainPhoto" class="block text-gray-700 font-bold mb-2">Main Photo</label>
+                
                 <input type="file" id="mainPhoto" name="mainPhoto"  accept="image/*" required 
-                 ngModel encodeBase64 (encoded)="newProperty.mainPhoto = $event" 
+                encodeBase64Directive (encoded)="newProperty.mainPhoto=$event" ngModel 
                 class="w-full text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
                 <!-- Contenedor para la previsualización de la imagen -->
+               
                 <div class="mt-4">
                     <!--usando [classs] -->
-                    <img id="image-preview" [src]="newProperty.mainPhoto" alt="Image preview" class="w-full h-48 object-cover rounded-lg" [class]="{
-                        'hidden': !newProperty.mainPhoto,
+                    <img id="image-preview" [src]="newProperty.mainPhoto" alt="Image preview" class="w-full h-48 object-cover rounded-lg" 
+                    [class]="{
+                        'hidden': !newProperty.mainPhoto ,
                     }">
                     <!--usando if
                     @if(newProperty.mainPhoto){
                         <img id="image-preview" [src]="newProperty.mainPhoto" alt="Image preview" class="w-full h-48 object-cover rounded-lg">
                 }-->
                 </div>
+                
             </div>
         </div>
         <div class="mt-8">

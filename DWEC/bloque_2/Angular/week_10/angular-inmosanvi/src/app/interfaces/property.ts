@@ -1,9 +1,9 @@
 import { PropertyInsert } from "./property-insert";
 import { Town } from "./town";
 
-export interface Property extends Omit<PropertyInsert,"townId">{
-
-/*{ server response GET property/id
+export interface Property extends Omit<PropertyInsert,"townId"> {
+    /**
+     * {
     "property": {
         "id": 12,
         "address": "Carretera de la montaña km 45",
@@ -15,8 +15,8 @@ export interface Property extends Omit<PropertyInsert,"townId">{
         "price": 375000,
         "totalRating": 5,
         "mainPhoto": "http://localhost:3000/img/properties/1760884839113.jpg",
-        "createdAt": "2025-10-19T14:40:39.114Z",
-        "status": "selling",
+        "createdAt": "2025-10-19T14:40:39.114Z", -->
+        "status": "selling", -->
         "town": {
             "id": 1220591,
             "name": "Biescas",
@@ -36,20 +36,11 @@ export interface Property extends Omit<PropertyInsert,"townId">{
             "lng": -0.654657
         }
     }
-}*/
-    id:number,
-    totalRating:number,
-    createdAt:Date,
-    status:string,
-    town:Town,
-    sellet?:{
-        id?:number,
-        name:string,
-        email:string,
-        avatar?:string,
-        lat?:number,
-        lng?:number,
-    },
-
-
+}
+     */
+    id:number;
+    createdAt:Date;
+    status:string;
+    town: Town;
+    seller?:number;
 }

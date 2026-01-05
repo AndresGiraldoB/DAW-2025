@@ -7,18 +7,22 @@ import { TownsResponse } from '../interfaces/responses/towns-response';
   providedIn: 'root',
 })
 export class ProvincesService {
-  
-  #provincesUrl="http://localhost:3000/provinces";
+  //http://localhost:3000/
+  #provincesUrl="provinces";
+  //httpClient  #http=inject(HttpClient);
+  readonly provincesResource=httpResource<ProvincesResponse>(
+    //funcion loader
+    ()=> `${this.#provincesUrl}`,
+    //valor por default
+    {defaultValue: {provinces: []}} ,//valor por defecto array vacio
+  );
 
-  readonly provincesResource= httpResource<ProvincesResponse>(()=> `${this.#provincesUrl}`, {
-    defaultValue:{provinces: [],},
-  });
-  
-  getTownsResource(provinceId:Signal<number> ):HttpResourceRef<TownsResponse>{
+
+  getTownsResource(provinceId:Signal<number>):HttpResourceRef<TownsResponse>{
     return httpResource<TownsResponse>(
-      ()=> `${this.#provincesUrl}/${provinceId()}/towns`,
-      {defaultValue:{towns:[]}},
+      ()=> provinceId() ? `${this.#provincesUrl}/${provinceId()}/towns` : undefined,
+      {defaultValue:{towns:[]}},//regresamos array towns vacio
     );
   }
-
+  
 }

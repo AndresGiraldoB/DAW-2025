@@ -12,13 +12,13 @@ import { PropertiesService } from '../services/properties-service';
   changeDetection:ChangeDetectionStrategy.OnPush,
 })
 export class PropertiesPage {
-
   //services and resources
   readonly #propertiesService=inject(PropertiesService);
-  readonly propertiesResource = this.#propertiesService.propertiesResource;
+  readonly propertiesResources=this.#propertiesService.propertiesResource;
 
-  //array de Properties
-  properties= linkedSignal(()=> this.propertiesResource.value().properties); //properties ahora es un linkedSignal que toma valor de this.propertiesResource.value()
+  //array de Properties ahora es un linkedSignal se vincula al valor del resource
+  properties=linkedSignal(()=> this.propertiesResources.value().properties);
+  
 
   search=signal("");
   province=signal("");
@@ -34,8 +34,10 @@ export class PropertiesPage {
         
   });
 
+
   addProperty(property:Property){
-   this.properties.update((prop)=> [...prop, property]);
+    //no se necesita generar el id
+   this.properties.update((prop)=> [...prop, property]);//clonar el array de propiedades y añadimos al final nuevaPropiedad
 
   }
   deleteProperty(property:Property ) {
